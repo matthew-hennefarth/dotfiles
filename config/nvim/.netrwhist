@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/Users/mhennefarth/.config/vim'
+let g:netrw_dirhist_6='/Users/mhennefarth/.config/vmd'
+let g:netrw_dirhist_5='/Users/mhennefarth/.terminfo'
+let g:netrw_dirhist_4='/Users/mhennefarth/Developer/CPET/.git'
+let g:netrw_dirhist_3='/Users/mhennefarth/Developer/other'
+let g:netrw_dirhist_2='/Users/mhennefarth/Developer/other/src'
+let g:netrw_dirhist_1='/Users/mhennefarth/.config/nvim/plugged'

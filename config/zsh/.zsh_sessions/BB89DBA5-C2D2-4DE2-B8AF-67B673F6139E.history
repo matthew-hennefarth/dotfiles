@@ -1,0 +1,3 @@
+/Applications/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/MacOS/startup.command ; exit;
+echo $SHELL
+exit

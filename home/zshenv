@@ -1,0 +1,28 @@
+#!/bin/zsh
+# zsh environment file. Environmental variables are set here
+
+# Default Programs
+export EDITOR="nvim"
+
+# Adds ~/.local/bin to path
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')" 
+export PATH=.:$PATH
+
+# Homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# ~/ Clean-up:
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export PYMOL_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/pymol/"
+export JUPYTER_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/jupyter/"
+export IPYTHONDIR="${XDG_CONFIG_HOME:-$HOME/.config}/ipython/"
+export MYVIMRC="${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc"
+export MPLCONFIGDIR="${XDG_CONFIG_HOME:-$HOME/.config}/matplotlib/"
+export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_compdump"
+export ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/less/lesshst"
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/.npmrc"
+#export VMDDIR="${XDG_CONFIG_HOME:-$HOME/.config}/vmd"

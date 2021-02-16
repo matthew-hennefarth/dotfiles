@@ -1,0 +1,72 @@
+nvim .zprofile
+vim .zprofile
+cd .config
+ls
+cd zsh
+ls
+vim .zshenv
+cat /etc/zshrc_Apple_Terminal
+exit
+ls
+ls
+ls -al
+mkdir .local
+mkdir .local/bin
+mkdir .cache
+cd .config
+ls
+cd zsh
+ls
+ls -al
+nvim .zshrc
+touch .zshrc
+cd ../../
+ls
+mkdir .cache
+cd ../
+ls
+cd mhennefarth/.cache
+ls
+mkdir zsh
+cd ../../
+ls
+cd mhennefarth
+ls
+ls -al
+rm .zsh_history
+ls
+cd .zsh_sessions
+ls
+cd ../
+brew install --cask iterm2
+cd .config
+ls
+cd zsh
+ls
+ls -al
+nvim .zshenv
+vim .zshenv
+ls
+mv .zshenv ~/
+ls
+cd ~/
+ls
+ls -al
+mv .zprofile .config/zsh
+ls
+cat .config/zsh/.zprofile
+ls
+vim .zshenv
+cd .config/zsh
+l
+vim .zprofile
+cat .zprofile
+nvim .zshrc
+vim .zshrc
+cat .zprofile > .zshrc
+vim .zshrc
+ls
+vim .zprofile
+ls
+ls
+vim .zshrc

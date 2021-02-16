@@ -1,0 +1,83 @@
+nvim .zprofile
+vim .zprofile
+cd .config
+ls
+cd zsh
+ls
+vim .zshenv
+cat /etc/zshrc_Apple_Terminal
+exit
+ls
+ls
+ls -al
+mkdir .local
+mkdir .local/bin
+mkdir .cache
+cd .config
+ls
+cd zsh
+ls
+ls -al
+nvim .zshrc
+touch .zshrc
+cd ../../
+ls
+mkdir .cache
+cd ../
+ls
+cd mhennefarth/.cache
+ls
+mkdir zsh
+cd ../../
+ls
+cd mhennefarth
+ls
+ls -al
+rm .zsh_history
+ls
+cd .zsh_sessions
+ls
+cd ../
+brew install --cask iterm2
+cd .config
+ls
+cd zsh
+ls
+ls -al
+nvim .zshenv
+vim .zshenv
+ls
+mv .zshenv ~/
+ls
+cd ~/
+ls
+ls -al
+mv .zprofile .config/zsh
+ls
+cat .config/zsh/.zprofile
+ls
+vim .zshenv
+cd .config/zsh
+l
+vim .zprofile
+cat .zprofile
+nvim .zshrc
+vim .zshrc
+cat .zprofile > .zshrc
+vim .zshrc
+ls
+vim .zprofile
+ls
+ls
+vim .zshrc
+vim .config/zsh/.zshrc
+ls
+exit
+hoffman
+exit
+/var/folders/cj/_f21d7j17zg3ll_3508mg6d00000gn/T/AppTranslocation/9A94F0ED-038C-4095-B9BE-D8A237661B26/d/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/MacOS/startup.command ; exit;
+/var/folders/cj/_f21d7j17zg3ll_3508mg6d00000gn/T/AppTranslocation/D80D445E-0697-42CA-975A-6272B854BB2B/d/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/MacOS/startup.command ; exit;
+/var/folders/cj/_f21d7j17zg3ll_3508mg6d00000gn/T/AppTranslocation/D80D445E-0697-42CA-975A-6272B854BB2B/d/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/MacOS/startup.command ; exit;
+/Applications/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/MacOS/startup.command ; exit;
+/Applications/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/MacOS/startup.command ; exit;
+/Applications/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/MacOS/startup.command ; exit;

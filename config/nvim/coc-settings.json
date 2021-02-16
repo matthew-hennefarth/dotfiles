@@ -1,0 +1,37 @@
+{
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "h",
+                "hpp",
+                "cpp",
+                "c++",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                ".vim/",
+                ".git/",
+                "src/",
+                "include/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "client": {
+                    "snippetSupport": true
+                },
+                "index": {
+                    "onChange": true
+                },
+                "highlight": { 
+                    "lsRanges" : true 
+                }
+            }
+        }
+    }
+}
