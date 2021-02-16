@@ -1,9 +1,0 @@
-nvim .zprofile
-vim .zprofile
-cd .config
-ls
-cd zsh
-ls
-vim .zshenv
-cat /etc/zshrc_Apple_Terminal
-exit
