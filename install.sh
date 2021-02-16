@@ -1,5 +1,8 @@
 #!/usr/bin/env bash 
 
+echo "Never been tested before on a new system....it should be debugged"
+echo "Really for macos only, though maybe it is possible to use with linux?"
+
 setup_symlinks() {
   echo "Creating symlinks"
 
