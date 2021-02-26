@@ -65,9 +65,13 @@ function scp_wrap {
 setopt rmstarsilent
 
 # My Aliases
-alias hoffman='/opt/homebrew/bin/ssh hoffman'
-alias bridges='/opt/homebrew/bin/ssh bridges'
-alias bridges2='/opt/homebrew/bin/ssh bridges2'
+alias hoffman='ssh hoffman'
+alias bridges='ssh bridges'
+alias bridges2='ssh bridges2'
+alias vmd='/Applications/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/vmd/vmd_MACOSXARM64'
+
+#alias python3='/opt/homebrew/bin/python3'
+#alias pip3='/opt/homebrew/bin/pip3'
 
 # Load zsh-syntax-highlighting; should be last.
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

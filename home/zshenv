@@ -5,11 +5,8 @@
 export EDITOR="nvim"
 
 # Adds ~/.local/bin to path
-export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')" 
+export PATH="$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH" 
 export PATH=.:$PATH
-
-# Homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -25,4 +22,3 @@ export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zsh_compdump"
 export ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/less/lesshst"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/.npmrc"
-#export VMDDIR="${XDG_CONFIG_HOME:-$HOME/.config}/vmd"

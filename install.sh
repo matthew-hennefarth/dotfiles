@@ -13,7 +13,7 @@ setup_symlinks() {
       echo "~${target#HOME} already exists... Skipping"
     else
       echo "Creating symlink for $config"
-#      ln -s "$config" "$target"
+      ln -s "$config" "$target"
     fi
   done
 
@@ -49,7 +49,6 @@ setup_homebrew() {
       eval $(/opt/homebrew/bin/brew shellenv)
     fi
     brew bundle
-    npm install -g yarn
   fi
 }
 
