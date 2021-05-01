@@ -17,6 +17,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/vim-clang-format' 
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-dispatch'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'tell-k/vim-autopep8'
 " PlugInstall for new plugins
 call plug#end()
 
@@ -191,6 +193,10 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+call coc#config('python', {
+      \ 'pythonPath' : 'python3'
+      \ })
+
 "lsp_cxx
 let g:lsp_cxx_hl_use_text_props = 1
 
@@ -203,6 +209,8 @@ let g:cpp_class_decl_highlight = 1
 let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_c_checkers = ['cpplint']
 let g:syntastic_cpp_cpplint_exec = 'cpplint'
+
+let g:syntastic_python_checkers = ['python3 -m pylint']
 " The following two lines are optional. Configure it to your liking!
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
@@ -213,3 +221,6 @@ nnoremap    <C-m>m    :Copen<CR> <bar> G
 " Build debug and release targets
 nnoremap    <C-m>bd   :Dispatch! make -C build/Debug<CR>
 nnoremap    <C-m>br   :Dispatch! make -C build/Release<CR>
+
+" autopep8
+let g:autopep8_disable_show_diff=1

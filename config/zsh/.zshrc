@@ -66,7 +66,7 @@ setopt rmstarsilent
 
 # My Aliases
 alias hoffman='ssh hoffman'
-alias bridges='ssh bridges'
+#alias bridges='ssh bridges'
 alias bridges2='ssh bridges2'
 alias vmd='/Applications/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/vmd/vmd_MACOSXARM64'
 

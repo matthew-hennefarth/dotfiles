@@ -58,7 +58,9 @@ setup_neovim() {
     echo "Neovim not found"
   else
     npm install -g yarn
+    pip3 install pynvim --upgrade
     nvim --headless +PlugInstall +q
+    nvim --headless +UpdateRemotePlugins +q
   fi
 }
 
