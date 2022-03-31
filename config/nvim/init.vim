@@ -19,6 +19,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-dispatch'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'tell-k/vim-autopep8'
+Plug 'Yggdroot/indentLine'
 " PlugInstall for new plugins
 call plug#end()
 
@@ -224,3 +225,7 @@ nnoremap    <C-m>br   :Dispatch! make -C build/Release<CR>
 
 " autopep8
 let g:autopep8_disable_show_diff=1
+
+" indentLine
+let g:indentLine_char = '┊'
+let g:indentLine_fileTypeExclude = ['tex', 'markdown']

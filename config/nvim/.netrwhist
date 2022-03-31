@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/mhennefarth/Downloads/SymbolicC++3-3.35/othercas'
+let g:netrw_dirhist_9='/System/Library/Frameworks'
 let g:netrw_dirhist_8='/Users/mhennefarth/Developer/matplotplusplus/examples'
 let g:netrw_dirhist_7='/Users/mhennefarth/Developer/matplotplusplus/test'
 let g:netrw_dirhist_6='/Users/mhennefarth/Developer/CPET/include'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_4='/Users/mhennefarth/Developer/CPET/tests'
 let g:netrw_dirhist_3='/Users/mhennefarth/Developer/CPET/build/t/_deps/eigen-build/CMakeFiles'
 let g:netrw_dirhist_2='/Users/mhennefarth/Developer/test/build'
 let g:netrw_dirhist_1='/Users/mhennefarth/Developer/dotfiles/config'
-let g:netrw_dirhist_0='/Users/mhennefarth/Desktop/reread'
-let g:netrw_dirhist_9='/Library/Java/JavaVirtualMachines'

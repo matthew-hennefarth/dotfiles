@@ -6,7 +6,6 @@ cask "spectacle"
 cask "font-source-code-pro"
 cask "mactex-no-gui"
 cask "xquartz"
-cask "iterm2"
 cask "spotify"
 
 # packages

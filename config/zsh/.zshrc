@@ -8,7 +8,8 @@ export LSCOLORS=fxGxcxdxbxegedabagacad
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[magenta]%}%c%{$reset_color%} %%%b "
+#PS1="%B%{$fg[magenta]%}%c%{$reset_color%} %%%b "
+PS1="%B%{$fg[magenta]%}%c%{$reset_color%} > "
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 # History in cache directory:
@@ -66,12 +67,10 @@ setopt rmstarsilent
 
 # My Aliases
 alias hoffman='ssh hoffman'
-#alias bridges='ssh bridges'
 alias bridges2='ssh bridges2'
+alias midway3='ssh midway3'
 alias vmd='/Applications/VMD\ 1.9.4a51-arm64-Rev9.app/Contents/vmd/vmd_MACOSXARM64'
-
-#alias python3='/opt/homebrew/bin/python3'
-#alias pip3='/opt/homebrew/bin/pip3'
+alias tmux='tmux -f ${HOME}/.config/tmux/tmux.conf'
 
 # Load zsh-syntax-highlighting; should be last.
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
