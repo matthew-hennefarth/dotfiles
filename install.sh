@@ -1,7 +1,8 @@
 #!/usr/bin/env bash 
 
-echo "Never been tested before on a new system....it should be debugged"
 echo "Really for macos only, though maybe it is possible to use with linux?"
+
+dotfile_dir=`pwd -P`
 
 setup_symlinks() {
   echo "Creating symlinks"
@@ -9,6 +10,7 @@ setup_symlinks() {
   echo "Installing to ~/"
   for config in home/*; do
     target="$HOME/.$(basename ${config})"
+    config=${dotfile_dir}/${config}
     if [ -e "$target" ]; then
       echo "~${target#HOME} already exists... Skipping"
     else
@@ -26,6 +28,7 @@ setup_symlinks() {
   
   for config in config/*; do
     target="$HOME/.config/$(basename ${config})"
+    config=${dotfile_dir}/${config}
     if [ -e "$target" ]; then
       echo "~${target#$HOME} already exists... Skipping."
     else
@@ -61,11 +64,17 @@ setup_neovim() {
     pip3 install pynvim --upgrade
     nvim --headless +PlugInstall +q
     nvim --headless +UpdateRemotePlugins +q
+    pushd ~/.config/nvim/plugged/coc.nvim
+    yarn install
+    yarn build
+    popd
+    echo "There might be some issues with pyright, so try opening nvim and typing
+  :CocInstall coc-pyright
+    "
   fi
 }
 
 
 #setup_symlinks
 #setup_homebrew
-#setup_shell
 #setup_neovim
