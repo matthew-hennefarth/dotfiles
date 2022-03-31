@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "coc-pyright": ">=1.1.118"
+    "coc-pyright": ">=1.1.232"
   }
 }
