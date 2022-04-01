@@ -46,6 +46,12 @@ if (has('termguicolors'))
     set termguicolors
 endif
 
+" gruvbox Theme
+let g:gruvbox_italic = 1
+let g:gruvbox_transparent_bg = 1
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
+
 " Allows transparent background
 highlight Normal guibg=none
 highlight NonText guibg=none
@@ -53,14 +59,6 @@ highlight NonText guibg=none
 " Material Theme
 "let g:material_terminal_italics=1
 "let g:material_theme_style='darker'
-
-" gruvbox Theme
-let g:gruvbox_italic = 1
-let g:gruvbox_transparent_bg = 1
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
-
-
 
 " For commenting and other
 let mapleader = ","
