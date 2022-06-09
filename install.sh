@@ -75,6 +75,6 @@ setup_neovim() {
 }
 
 
-#setup_symlinks
+setup_symlinks
 #setup_homebrew
 #setup_neovim
