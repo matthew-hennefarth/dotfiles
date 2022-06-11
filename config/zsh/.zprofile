@@ -3,3 +3,5 @@
 
 # Homebrew
 eval $(/opt/homebrew/bin/brew shellenv)
+
+source ${HOME}/.config/zsh/.zsh_local
