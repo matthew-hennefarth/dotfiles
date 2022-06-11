@@ -3,6 +3,9 @@
 
 # Default Programs
 export EDITOR="nvim"
+export PYSCF=$HOME/Developer/pyscf
+export MRH=$HOME/Developer/mrh
+export PYTHONPATH=$PYSCF:$MRH:$PYTHONPATH
 
 # Adds ~/.local/bin to path
 export PATH="$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH" 
