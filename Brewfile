@@ -12,6 +12,7 @@ brew "zsh-syntax-highlighting"
 brew "node"
 brew "autopep8"
 brew "svn"
+brew "gpg"
 
 # Applications
 cask "google-chrome"

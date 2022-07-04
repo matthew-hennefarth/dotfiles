@@ -6,6 +6,7 @@ export EDITOR="nvim"
 export PYSCF=$HOME/Developer/pyscf
 export MRH=$HOME/Developer/mrh
 export PYTHONPATH=$PYSCF:$MRH:$PYTHONPATH
+export GPG_TTY=$(tty)
 
 # Adds ~/.local/bin to path
 export PATH="$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH" 
@@ -28,4 +29,4 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/.npmrc"
 export PYLINTHOME="${XDG_CACHE_HOME:-$HOME/.cache}/pylint/"
 export PYLINTRC="${XDG_CONFIG_HOME:-$HOME/.config}/pylint/pylintrc"
 export CPM_SOURCE_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/CPM"
-export GOPATH="${HOME}/Developer/go"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
