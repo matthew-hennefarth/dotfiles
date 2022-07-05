@@ -8,9 +8,17 @@ export LSCOLORS=fxGxcxdxbxegedabagacad
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-#PS1="%B%{$fg[magenta]%}%c%{$reset_color%} %%%b "
-PS1="%B%{$fg[magenta]%}%c%{$reset_color%} > "
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+function parse_git_branch() {
+  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1] /p'
+}
+
+COLOR_DEF=$'%f'
+COLOR_DIR=$'%F{magenta}'
+COLOR_GIT=$'%F{39}'
+setopt PROMPT_SUBST
+export PROMPT='${COLOR_DIR}%c ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}> '
+#PS1="%B%{$fg[magenta]%}%c%{$reset_color%} > "
 
 # History in cache directory:
 export HISTSIZE=10000

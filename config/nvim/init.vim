@@ -6,13 +6,14 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'preservim/nerdcommenter'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'jiangmiao/auto-pairs'
-Plug 'vim-airline/vim-airline'
 Plug 'rhysd/vim-clang-format' 
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'tell-k/vim-autopep8'
 Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-fugitive'
+Plug 'itchyny/lightline.vim'
 " PlugInstall for new plugins
 call plug#end()
 
@@ -43,7 +44,6 @@ endif
 let g:gruvbox_italic = 1
 let g:gruvbox_transparent_bg = 1
 colorscheme gruvbox
-let g:airline_theme='gruvbox'
 
 " Allows transparent background
 highlight Normal guibg=none
@@ -51,7 +51,3 @@ highlight NonText guibg=none
 
 " For commenting and other
 let mapleader = ","
-
-"source nerdtree.vim
-"source autopep8.vim
-"source indentline.vim
