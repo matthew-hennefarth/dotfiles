@@ -5,5 +5,3 @@ config/zsh/.zsh_history
 config/zsh/.zshcompdump
 config/zsh/.zsh_sessions
 config/zsh/.zsh_local
-config/coc/suggest.txt
-config/coc/extensions/node_modules/*

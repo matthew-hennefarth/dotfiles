@@ -7,12 +7,10 @@ brew "neovim"
 brew "tmux"
 brew "clang-format"
 brew "cmake"
-brew "ccls"
 brew "zsh-syntax-highlighting"
-brew "node"
 brew "autopep8"
-brew "svn"
 brew "gpg"
+brew "gnuplot"
 
 # Applications
 cask "google-chrome"
