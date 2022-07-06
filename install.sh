@@ -60,17 +60,8 @@ setup_neovim() {
   if test ! "$(command -v nvim)"; then
     echo "Neovim not found"
   else
-    npm install -g yarn
-    pip3 install pynvim --upgrade
     nvim --headless +PlugInstall +q
     nvim --headless +UpdateRemotePlugins +q
-    pushd ~/.config/nvim/plugged/coc.nvim
-    yarn install
-    yarn build
-    popd
-    echo "There might be some issues with pyright, so try opening nvim and typing
-  :CocInstall coc-pyright
-    "
   fi
 }
 
