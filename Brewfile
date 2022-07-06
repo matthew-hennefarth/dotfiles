@@ -21,5 +21,5 @@ cask "font-source-code-pro"
 cask "mactex-no-gui"
 cask "xquartz"
 cask "spotify"
-cask "inkscape"
-
+cask "cyberduck"
+cask "dataspell"
