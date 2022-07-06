@@ -1,8 +1,9 @@
-" autd-install vim-plug                                                                                                                
+" auto-install vim-plug                                                                                                                
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
         silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         autocmd VimEnter * PlugInstall                                                                                                      
 endif
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'preservim/nerdcommenter'
@@ -14,6 +15,7 @@ Plug 'tell-k/vim-autopep8'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
+Plug 'mhinz/vim-signify'
 " PlugInstall for new plugins
 call plug#end()
 
