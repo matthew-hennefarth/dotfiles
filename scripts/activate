@@ -1,0 +1,5 @@
+#!/bin/sh
+
+WORKON_HOME=${HOME}/Developer/.venvs
+
+source $WORKON_HOME/$1/bin/activate

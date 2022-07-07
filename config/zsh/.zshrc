@@ -77,7 +77,6 @@ setopt rmstarsilent
 alias bridges2='ssh bridges2'
 alias midway3='ssh midway3'
 alias midway3-amd='ssh midway3-amd'
-alias vmd='/Applications/VMD\ 1.9.4a57-arm64-Rev12.app/Contents/vmd/vmd_MACOSXARM64'
 alias tmux='tmux -f ${HOME}/.config/tmux/tmux.conf'
 
 # Load zsh-syntax-highlighting; should be last.

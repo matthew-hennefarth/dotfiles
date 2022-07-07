@@ -9,7 +9,8 @@ export PYTHONPATH=$PYSCF:$MRH:$PYTHONPATH
 export GPG_TTY=$(tty)
 
 # Adds ~/.local/bin to path
-export PATH="$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH" 
+export PATH="$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH"
+export PATH="$(find $HOME/.local/bin -type l -ls | rev | cut -f3 -d" " | rev| tr '\n' ':' | sed 's/:*$//'):$PATH"
 export PATH=.:$PATH
 
 # ~/ Clean-up:

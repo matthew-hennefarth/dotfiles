@@ -11,6 +11,7 @@ brew "zsh-syntax-highlighting"
 brew "autopep8"
 brew "gpg"
 brew "gnuplot"
+brew "virtualenv"
 
 # Applications
 cask "google-chrome"

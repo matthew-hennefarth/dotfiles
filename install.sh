@@ -37,6 +37,25 @@ setup_symlinks() {
     fi
   done
 
+  echo "Installing to ~/.local/bin"
+  if [ ! -d "${HOME}/.local/" ]; then
+    echo "Creating ~/.local"
+    mkdir -p "$HOME/.local"
+  fi
+
+  if [ ! -d "${HOME}/.local/bin" ]; then
+    echo "Creating ~/.local/bin"
+    mkdir -p "$HOME/.local/bin"
+  fi
+  target="$HOME/.local/bin/scripts"
+  source="${dotfile_dir}/scripts"
+  if [ -e "$target" ]; then
+    echo "$target already exists... Skipping."
+  else
+    echo "Creating symlink for scripts"
+    ln -s "${source}" "$target"
+  fi
+
 }
 
 setup_homebrew() {
@@ -64,7 +83,6 @@ setup_neovim() {
     nvim --headless +UpdateRemotePlugins +q
   fi
 }
-
 
 setup_symlinks
 #setup_homebrew
