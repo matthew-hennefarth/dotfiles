@@ -6,6 +6,7 @@ export EDITOR="nvim"
 #export PYSCF=$HOME/Developer/pyscf
 #export MRH=$HOME/Developer/
 #export PYTHONPATH=$PYSCF:$MRH:$PYTHONPATH
+export WORKON_HOME=$HOME/Developer/.venvs
 export GPG_TTY=$(tty)
 
 # Adds ~/.local/bin to path

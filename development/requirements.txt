@@ -1,4 +1,6 @@
 # Install these globally
-matplotlib
+numpy
 pandas
+flake8
+matplotlib
 notebook
