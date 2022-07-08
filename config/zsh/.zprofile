@@ -4,6 +4,8 @@
 # Homebrew
 eval $(/opt/homebrew/bin/brew shellenv)
 
+# Additional Environmental Variables
+export WORKON_HOME=$HOME/Developer/.venvs
 source ${HOME}/.config/zsh/.zsh_local
 
 # Deal with Virtual Environment
@@ -14,9 +16,9 @@ function __venv_activate {
         echo "Must specify an environment to load"
         return 1
       fi
-      p=$WORKON_HOME/$2/bin/activate
+      p=$WORKON_HOME/$2/activate
       if [ -f "$p" ]; then
-        source $HOME/Developer/.venvs/$2/bin/activate
+        source $p
       else
         echo "Environment $2 does not exist"
         return 1
