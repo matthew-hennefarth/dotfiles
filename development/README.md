@@ -40,4 +40,3 @@ PYTHONPATH="$VIRTUAL_PYTHONPATH:$PYTHONPATH"
 export PYTHONPATH
 ```
 
-At some later point, I might add some dependence on `modules` to these files, but I am unsure if I necessarily want to do that quite yet. It doesn't seem that it is particularly important to do so anyways.
