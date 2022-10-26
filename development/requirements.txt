@@ -4,3 +4,4 @@ pandas
 flake8
 matplotlib
 notebook
+neovim

@@ -4,7 +4,7 @@
 
 I will try to reduce the amount of python packages that I install globally and instead prefer virtual environments. Though, of course, there are certain packages that I would like everywhere and so it doesn't make sense to NOT install them. Hence, they will live in this relatively small `requirements.txt` file. To install on a fresh system, just do
 
-`pip -r requirements.txt`
+`pip install -r requirements.txt`
 
 ## Virtualenvs
 
