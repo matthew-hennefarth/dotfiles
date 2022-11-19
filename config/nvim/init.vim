@@ -16,6 +16,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
+Plug 'neovim/nvim-lspconfig'
 " PlugInstall for new plugins
 call plug#end()
 
