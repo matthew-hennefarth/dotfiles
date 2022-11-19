@@ -21,6 +21,29 @@ return require('packer').startup(function(use)
   use 'RRethy/nvim-base16'
 
   use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('mhennefarth.plugins.treesitter')
+    end,
+    run = ":TSUpdate",
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('mhennefarth.plugins.indent-blankline')
+    end
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('mhennefarth.plugins.lualine')
+    end,
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  use {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('mhennefarth.plugins.gitsigns')

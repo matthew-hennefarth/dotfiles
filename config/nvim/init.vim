@@ -7,11 +7,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'rhysd/vim-clang-format' 
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'tell-k/vim-autopep8'
-Plug 'Yggdroot/indentLine'
-Plug 'itchyny/lightline.vim'
-Plug 'mhinz/vim-signify'
 " PlugInstall for new plugins
 call plug#end()
 
