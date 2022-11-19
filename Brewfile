@@ -14,7 +14,7 @@ brew "gnuplot"
 brew "virtualenv"
 
 # Applications
-cask "google-chrome"
+cask "firefox"
 cask "discord"
 cask "iterm2"
 cask "spectacle"
