@@ -28,6 +28,16 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- A Better Status Line -- 
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('mhennefarth.plugins.lualine')
+    end,
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
+  -- A better File System
   use {
     'nvim-tree/nvim-tree.lua',
     config = function()
@@ -35,6 +45,7 @@ return require('packer').startup(function(use)
     end,
   }
 
+  -- Treesitter Syntax Highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
@@ -50,13 +61,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require('mhennefarth.plugins.lualine')
-    end,
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
 
   use {
     'lewis6991/gitsigns.nvim',
