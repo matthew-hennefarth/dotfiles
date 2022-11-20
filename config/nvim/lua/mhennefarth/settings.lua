@@ -3,7 +3,6 @@ local o = vim.o
 
 -- Some color settings
 o.termguicolors = true
--- o.background = dark
 
 -- General settings for a better UI
 o.tabstop = 2
@@ -24,6 +23,10 @@ vim.cmd [[
   hi Normal guibg=none
   hi NonText guibg=none
 ]]
+
+-- Disable netrw
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 -- For commenting and other
 g.mapleader = ','

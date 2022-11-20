@@ -18,7 +18,22 @@ return require('packer').startup(function(use)
   -- My plugins here
   use 'preservim/nerdcommenter' 
   use 'jiangmiao/auto-pairs'
+ 
+  -- Different colorschemes
   use 'RRethy/nvim-base16'
+  use {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      require('mhennefarth.plugins.gruvbox')
+    end,
+  }
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require('mhennefarth.plugins.tree')
+    end,
+  }
 
   use {
     'nvim-treesitter/nvim-treesitter',
