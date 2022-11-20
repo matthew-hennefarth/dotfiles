@@ -47,14 +47,6 @@ setup_symlinks() {
     echo "Creating ~/.local/bin"
     mkdir -p "$HOME/.local/bin"
   fi
-  target="$HOME/.local/bin/scripts"
-  source="${dotfile_dir}/scripts"
-  if [ -e "$target" ]; then
-    echo "$target already exists... Skipping."
-  else
-    echo "Creating symlink for scripts"
-    ln -s "${source}" "$target"
-  fi
 
 }
 
