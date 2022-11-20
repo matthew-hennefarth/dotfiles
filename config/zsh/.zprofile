@@ -2,7 +2,7 @@
 # zsh profile file. Runs on login. 
 
 # Initialize Homebrew if on system
-which brew > /dev/null && eval $(/opt/homebrew/bin/brew shellenv)
+which /opt/homebrew/bin/brew > /dev/null && eval $(/opt/homebrew/bin/brew shellenv)
 
 # Additional Environmental Variables
 export WORKON_HOME=$HOME/Developer/.venvs
