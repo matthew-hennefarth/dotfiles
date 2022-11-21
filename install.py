@@ -4,6 +4,7 @@ import os, sys, shutil
 import argparse
 import logging
 import shutil
+import subprocess
 
 LOGGER = logging.getLogger(__name__)
 
@@ -11,6 +12,7 @@ DOTFILE_DIR = os.path.dirname(__file__)
 
 HOME = os.path.expanduser("~")
 CONFIG = os.path.join(HOME, ".config")
+BREW_FULL_PATH = "/opt/homebrew/bin/brew"
 
 def init_logger():
     LOGGER.debug("Changing logger format")
@@ -57,8 +59,32 @@ def configure_symlinks(overwrite=False):
     generate_symlinks_for(config_dot_dir, CONFIG, overwrite=overwrite)
 
 
+def homebrew_installed():
+    return shutil.which(BREW_FULL_PATH) is not None
+
+
+def nvim_installed():
+    return shutil.which("nvim") is not None
+
+
+def install_homebrew():
+    # TODO!! this is a bit tricky I think...we will see tho!
+    LOGGER.info("Installing Homebrew...")
+    LOGGER.error("NOT IMPLEMENTED! CANNOT INSTALL HOMEBREW")
+
+
+def install_homebrew_packages():
+    pkgfile_dir = os.path.join(DOTFILE_DIR, "pkgfiles")
+    install_cmd = "brew bundle"
+    LOGGER.info("Installing Homebrew Packages")
+    subprocess.check_call(install_cmd, shell=True, cwd=pkgfile_dir)
+
+
 def configure_homebrew():
-    LOGGER.error("HOMEBREW SETUP NOT IMPLEMENTED!")
+    if not homebrew_installed():
+        install_homebrew()
+
+    install_homebrew_packages()
 
 
 def configure_pkgmanager():
@@ -70,7 +96,13 @@ def configure_pkgmanager():
 
 
 def configure_nvim():
-    LOGGER.error("NVIM CONFIGURATION NOT IMPLEMENTED!")
+    if not nvim_installed():
+        LOGGER.error("Neovim is not installed!")
+        return
+   
+    update_cmd = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+    LOGGER.info(f"Running PackerComplete and PackerSync")
+    subprocess.check_call(update_cmd, shell=True)
 
 
 def main():
@@ -78,7 +110,7 @@ def main():
 
     parser = argparse.ArgumentParser(
         prog = "install.py",
-        description = "Installs config files, system pacakges, and setup nvim",
+        description = "Installs config files, system packages, and setup nvim",
         epilog = "Currently only for MacOS, though I will work on porting to Linux over time...")
 
     parser.add_argument("-v", "--verbose", action="store_true")
