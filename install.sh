@@ -43,11 +43,6 @@ setup_symlinks() {
     mkdir -p "$HOME/.local"
   fi
 
-  if [ ! -d "${HOME}/.local/bin" ]; then
-    echo "Creating ~/.local/bin"
-    mkdir -p "$HOME/.local/bin"
-  fi
-
 }
 
 setup_homebrew() {
