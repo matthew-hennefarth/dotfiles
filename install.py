@@ -57,13 +57,13 @@ def configure_symlinks(overwrite=False):
     generate_symlinks_for(config_dot_dir, CONFIG, overwrite=overwrite)
 
 
-def setup_homebrew():
+def configure_homebrew():
     LOGGER.error("HOMEBREW SETUP NOT IMPLEMENTED!")
 
 
 def configure_pkgmanager():
     if sys.platform == "darwin":
-        setup_homebrew()
+        configure_homebrew()
     
     else:
         LOGGER.error(f"Unknown package manager for {sys.platform}")
