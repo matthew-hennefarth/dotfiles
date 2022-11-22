@@ -80,4 +80,4 @@ alias midway3-amd='ssh midway3-amd'
 alias tmux='tmux -f ${HOME}/.config/tmux/tmux.conf'
 
 # Load zsh-syntax-highlighting; should be last.
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${ZSH_SYNTAX_HIGHLIGHTING_ROOT}/zsh-syntax-highlighting.zsh
