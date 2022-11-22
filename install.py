@@ -22,7 +22,7 @@ def init_logger():
     LOGGER.debug("Set logger level to WARNING")
 
 
-def generate_symlinks_for(src, dst, dot_prefix=False, overwrite=False):
+def generate_symlinks_for(src: str, dst: str, dot_prefix: bool = False, overwrite: bool = False) -> None:
     LOGGER.info(f"Installing to {dst}")
     
     configs = [f for f in os.listdir(src) if f != ".DS_Store"]
@@ -35,10 +35,11 @@ def generate_symlinks_for(src, dst, dot_prefix=False, overwrite=False):
             if overwrite:
                 LOGGER.info(f"{log_string} Overwriting")
                 if os.path.isdir(target) and not os.path.islink(target):
-                    LOGGER.info("PURE DIRECTORY!!")
+                    LOGGER.debug(f"Removing {target} (pure directory)")
                     shutil.rmtree(target)
 
                 else:
+                    LOGGER.debug(f"Removing {target}")
                     os.remove(target)
 
             else:
@@ -49,7 +50,7 @@ def generate_symlinks_for(src, dst, dot_prefix=False, overwrite=False):
         os.symlink(config, target)
 
 
-def configure_symlinks(overwrite=False):
+def configure_symlinks(overwrite: bool = False):
     LOGGER.info("Creating symlinks")
 
     home_dot_dir = os.path.join(DOTFILE_DIR, "home")
@@ -59,35 +60,36 @@ def configure_symlinks(overwrite=False):
     generate_symlinks_for(config_dot_dir, CONFIG, overwrite=overwrite)
 
 
-def homebrew_installed():
+def homebrew_installed() -> bool:
     return shutil.which(BREW_FULL_PATH) is not None
 
 
-def nvim_installed():
+def nvim_installed() -> bool:
     return shutil.which("nvim") is not None
 
 
-def install_homebrew():
+def install_homebrew() -> None:
     # TODO!! this is a bit tricky I think...we will see tho!
     LOGGER.info("Installing Homebrew...")
     LOGGER.error("NOT IMPLEMENTED! CANNOT INSTALL HOMEBREW")
 
 
-def install_homebrew_packages():
+def install_homebrew_packages() -> None:
     pkgfile_dir = os.path.join(DOTFILE_DIR, "pkgfiles")
     install_cmd = "brew bundle"
     LOGGER.info("Installing Homebrew Packages")
+    LOGGER.debug(f"Running command: {install_cmd}")
     subprocess.check_call(install_cmd, shell=True, cwd=pkgfile_dir)
 
 
-def configure_homebrew():
+def configure_homebrew() -> None:
     if not homebrew_installed():
         install_homebrew()
 
     install_homebrew_packages()
 
 
-def configure_pkgmanager():
+def configure_pkgmanager() -> None:
     if sys.platform == "darwin":
         configure_homebrew()
     
@@ -95,17 +97,18 @@ def configure_pkgmanager():
         LOGGER.error(f"Unknown package manager for {sys.platform}")
 
 
-def configure_nvim():
+def configure_nvim() -> None:
     if not nvim_installed():
         LOGGER.error("Neovim is not installed!")
         return
    
     update_cmd = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
     LOGGER.info(f"Running PackerComplete and PackerSync")
+    LOGGER.debug(f"Running command: {update_cmd}")
     subprocess.check_call(update_cmd, shell=True)
 
 
-def main():
+def main() -> None:
     init_logger()
 
     parser = argparse.ArgumentParser(
@@ -122,8 +125,6 @@ def main():
     if args.verbose:
         LOGGER.setLevel(logging.INFO)
         LOGGER.debug("Setting logger level to INFO")
-        LOGGER.setLevel(logging.DEBUG)
-        LOGGER.debug("Setting logger level to DEBUG")
     
     configure_symlinks(overwrite=args.overwrite)
     configure_pkgmanager()
