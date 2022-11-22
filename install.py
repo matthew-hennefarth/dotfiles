@@ -8,7 +8,7 @@ import subprocess
 
 LOGGER = logging.getLogger(__name__)
 
-DOTFILE_DIR = os.path.dirname(__file__)
+DOTFILE_DIR = os.path.realpath(os.path.dirname(__file__))
 
 HOME = os.path.expanduser("~")
 CONFIG = os.path.join(HOME, ".config")
@@ -30,7 +30,7 @@ def generate_symlinks_for(src: str, dst: str, dot_prefix: bool = False, overwrit
         target = os.path.join(dst, f"{'.' if dot_prefix else ''}{config}")
         config = os.path.join(src, config)
 
-        if os.path.exists(target):
+        if os.path.exists(target) or os.path.islink(target):
             log_string = f"{target} already exists..."
             if overwrite:
                 LOGGER.info(f"{log_string} Overwriting")
@@ -38,9 +38,13 @@ def generate_symlinks_for(src: str, dst: str, dot_prefix: bool = False, overwrit
                     LOGGER.debug(f"Removing {target} (pure directory)")
                     shutil.rmtree(target)
 
+                elif os.path.isdir(target):
+                    LOGGER.debug(f"Removing {target} (sym link directory)")
+                    os.rmdir(target)
+
                 else:
                     LOGGER.debug(f"Removing {target}")
-                    os.remove(target)
+                    os.unlink(target)
 
             else:
                 LOGGER.info(f"{log_string} Skipping")
