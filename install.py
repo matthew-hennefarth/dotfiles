@@ -73,9 +73,14 @@ def nvim_installed() -> bool:
 
 
 def install_homebrew() -> None:
-    # TODO!! this is a bit tricky I think...we will see tho!
     LOGGER.info("Installing Homebrew...")
-    LOGGER.error("NOT IMPLEMENTED! CANNOT INSTALL HOMEBREW")
+    download_cmd = "sudo curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login"
+    LOGGER.debug(f"Running command: {download_cmd}")
+    subprocess.check_call(download_cmd, shell=True)
+
+    install_cmd = "eval $(/opt/homebrew/bin/brew shellenv)"
+    LOGGER.debug(f"Running command: {install_cmd}")
+    subprocess.check_call(install_cmd, shell=True)
 
 
 def install_homebrew_packages() -> None:
@@ -129,7 +134,7 @@ def main() -> None:
     if args.verbose:
         LOGGER.setLevel(logging.INFO)
         LOGGER.debug("Setting logger level to INFO")
-    
+   
     configure_symlinks(overwrite=args.overwrite)
     configure_pkgmanager()
     configure_nvim()
