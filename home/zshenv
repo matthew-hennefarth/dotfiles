@@ -24,6 +24,7 @@ export ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export LESSHISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/less/lesshst"
 export CPM_SOURCE_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/CPM"
 export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
+export CCACHE_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ccache"
 
 export RUSTUP_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/rustup"
 export CARGO_HOME="${XDG_CACHE_HOME:-$HOME/.cache}/cargo"
