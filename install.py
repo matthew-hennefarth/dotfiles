@@ -105,9 +105,9 @@ def configure_nvim() -> None:
     if not nvim_installed():
         LOGGER.error("Neovim is not installed!")
         return
-   
-    update_cmd = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
-    LOGGER.info(f"Running PackerComplete and PackerSync")
+
+    update_cmd = "nvim --headless +PackerSync +q"
+    LOGGER.info(f"Running PackerSync ")
     LOGGER.debug(f"Running command: {update_cmd}")
     subprocess.check_call(update_cmd, shell=True)
 
