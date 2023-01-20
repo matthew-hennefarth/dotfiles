@@ -29,3 +29,4 @@ cask "zotero"
 # Fonts
 cask "font-sauce-code-pro-nerd-font"
 cask "font-terminess-ttf-nerd-font"
+cask "font-computer-modern"

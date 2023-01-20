@@ -112,8 +112,9 @@ def configure_nvim() -> None:
         return
 
     update_cmd = "nvim --headless +PackerSync +q"
-    LOGGER.info(f"Running PackerSync ")
+    LOGGER.info(f"Running PackerSync twice")
     LOGGER.debug(f"Running command: {update_cmd}")
+    subprocess.check_call(update_cmd, shell=True)
     subprocess.check_call(update_cmd, shell=True)
 
 
