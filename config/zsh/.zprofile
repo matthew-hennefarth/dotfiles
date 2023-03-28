@@ -27,6 +27,9 @@ function __venv_activate {
     deactivate)
       deactivate
     ;;
+    reload)
+      deactivate && venv activate $2
+    ;;
     *)
       echo "Unknown command $@"
     ;;
@@ -38,7 +41,7 @@ function __venv_activate {
 function venv {
   local cmd="${1-__missing__}"
   case "$cmd" in
-    activate | deactivate)
+    activate | deactivate | reload )
       __venv_activate "$@"
     ;;
     *)
