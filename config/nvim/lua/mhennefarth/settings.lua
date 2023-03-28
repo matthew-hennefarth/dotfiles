@@ -14,6 +14,7 @@ o.smarttab = true
 o.smartindent = true
 o.shiftwidth = 2
 o.laststatus = 2
+vim.wo.linebreak = true
 
 -- General Cleanup
 o.viminfo = "%,<800,'10,/50,:100,h,f0,n~/.cache/viminfo"
