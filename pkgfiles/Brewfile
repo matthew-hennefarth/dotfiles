@@ -25,6 +25,7 @@ cask "cyberduck"
 cask "dataspell"
 cask "pycharm"
 cask "zotero"
+cask "clion"
 
 # Fonts
 cask "font-sauce-code-pro-nerd-font"
