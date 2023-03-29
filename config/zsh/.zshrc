@@ -26,6 +26,10 @@ export SAVEHIST=10000
 export HISTFILE=$HOME/.cache/zsh/zsh_history
 
 # Basic auto/tab complete:
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
