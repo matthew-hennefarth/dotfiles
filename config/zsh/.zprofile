@@ -5,6 +5,7 @@
 which /opt/homebrew/bin/brew &> /dev/null && eval $(/opt/homebrew/bin/brew shellenv)
 
 # Additional Environmental Variables
+export GPG_TTY=$(tty)
 export WORKON_HOME=$HOME/Developer/.venvs
 source ${HOME}/.config/zsh/.zsh_local
 
