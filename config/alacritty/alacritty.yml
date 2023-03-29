@@ -7,11 +7,11 @@ env:
 # Font Specification
 font:
   normal: 
-    family: DinaRemasterII
-    #family: TerminessTTF Nerd Font Mono # Fall-back font for weird symbols
-    style: Medium
+    #family: DinaRemasterII
+    family: TerminessTTF Nerd Font Mono # Fall-back font for weird symbols
+    style: Medium 
 
-  size: 16
+  size: 18
 
 cursor:
   style:
