@@ -14,4 +14,4 @@ config/zsh/.zsh_local
 # Has personal information
 config/mutt/accounts
 config/mutt/muttrc
-config/mutt/.ailsynclastrun
+config/mutt/.mailsynclastrun

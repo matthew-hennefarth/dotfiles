@@ -20,8 +20,8 @@ DinaRemasterII and Terminess Nerd Font.
 - zsh
 
 ## mail
-Currently using neomutt for my email. Using [mutt-wizard](https://github.com/LukeSmithxyz/mutt-wizard) as my setup.
+Currently using neomutt for my email. Using (my) [mutt-wizard](https://github.com/matthew-hennefarth/mutt-wizard) as my setup.
 Coupling of things to note:
-- for Gmail, change the trash, posponed, and record in the
-  `~/.config/mutt/accounts/\*.muttrc` file.
-- might need to do some cleanup of the config files
+- might need to do some cleanup of the config files (in the home directory)
+- need to get python3 markdown package (will include in the requirements.txt at
+  some point)
