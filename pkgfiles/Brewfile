@@ -19,7 +19,7 @@ brew "neomutt"
 brew "isync"
 brew "msmtp"
 brew "lynx"
-brew "urlview"
+brew "erikw/tap/xdg-urlview"
 
 # Applications
 cask "firefox"
