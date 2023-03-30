@@ -4,7 +4,13 @@ Brewfile.lock.json
 config/nvim/autoload/
 config/nvim/plugged/
 */packer_compiled.lua
+
+# Why does someone need to see this????
 config/zsh/.zsh_history
 config/zsh/.zshcompdump
 config/zsh/.zsh_sessions
 config/zsh/.zsh_local
+
+# Has personal information
+config/mutt/accounts
+config/mutt/muttrc
