@@ -14,6 +14,13 @@ brew "gnuplot"
 brew "virtualenv"
 brew "pass"
 
+# Temp for neomutt
+brew "neomutt"
+brew "isync"
+brew "msmtp"
+brew "lynx"
+brew "urlview"
+
 # Applications
 cask "firefox"
 cask "discord"
