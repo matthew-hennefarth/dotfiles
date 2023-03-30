@@ -84,6 +84,7 @@ alias midway3-amd='ssh midway3-amd'
 alias tmux='tmux -f ${HOME}/.config/tmux/tmux.conf'
 alias cfg='nvim ${XDG_CONFIG_HOME-$HOME/.config}'
 alias cfgz='nvim $ZDOTDIR'
+alias neomutt='stty discard undef; neomutt'
 
 # Load zsh-syntax-highlighting; should be last.
 source ${ZSH_SYNTAX_HIGHLIGHTING_ROOT}/zsh-syntax-highlighting.zsh

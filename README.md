@@ -18,3 +18,10 @@ DinaRemasterII and Terminess Nerd Font.
 - tmux
 - virtualenv
 - zsh
+
+## mail
+Currently using neomutt for my email. Using [mutt-wizard](https://github.com/LukeSmithxyz/mutt-wizard) as my setup.
+Coupling of things to note:
+- for Gmail, change the trash, posponed, and record in the
+  `~/.config/mutt/accounts/\*.muttrc` file.
+- might need to do some cleanup of the config files

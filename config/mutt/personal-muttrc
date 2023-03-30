@@ -1,5 +1,5 @@
 # vim: filetype=neomuttrc
-set use_threads=yes
+set use_threads=reverse sort=date sort_aux=date
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
 macro index,pager Md ";<save-message>=[Gmail]/Drafts<enter>" "move mail to drafts"
 macro index,pager Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
@@ -12,3 +12,9 @@ macro index,pager Ct ";<copy-message>=[Gmail]/Trash<enter>" "copy mail to trash"
 macro index,pager gs "<change-folder>=[Gmail]/Sent Mail<enter>" "go to sent"
 macro index,pager Ms ";<save-message>=[Gmail]/Sent Mail<enter>" "move mail to sent"
 macro index,pager Cs ";<copy-message>=[Gmail]/Sent Mail<enter>" "copy mail to sent"
+
+set sidebar_folder_indent
+set sidebar_indent_string="  "
+
+source ~/.config/mutt/colors-gruvbox.muttrc
+source ~/.config/mutt/powerline.muttrc
