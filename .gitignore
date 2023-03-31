@@ -10,6 +10,7 @@ config/zsh/.zsh_history
 config/zsh/.zshcompdump
 config/zsh/.zsh_sessions
 config/zsh/.zsh_local
+config/zsh/.zcompcache
 
 # Has personal information
 config/mutt/accounts
