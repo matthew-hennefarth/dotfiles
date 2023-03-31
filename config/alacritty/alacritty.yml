@@ -11,7 +11,7 @@ font:
     family: TerminessTTF Nerd Font Mono # Fall-back font for weird symbols
     style: Medium 
 
-  size: 18
+  size: 18.5
 
 cursor:
   style:
