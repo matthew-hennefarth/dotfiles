@@ -13,11 +13,29 @@ macro index,pager gs "<change-folder>=[Gmail]/Sent Mail<enter>" "go to sent"
 macro index,pager Ms ";<save-message>=[Gmail]/Sent Mail<enter>" "move mail to sent"
 macro index,pager Cs ";<copy-message>=[Gmail]/Sent Mail<enter>" "copy mail to sent"
 
+# labels as read for Gmail
+#macro index l "<modify-labels>-unread<enter><display-message>" "display message"
+
+#unbind \Cn
+#macro index \Cn "<mark-as-new><modify-labels>+unread<enter><sync-mailbox>" "mark as new and unread"
+
+set mark_old=no
+
 set sidebar_folder_indent
 set sidebar_indent_string="  "
 
 set attach_save_dir="~/Downloads/"
 set crypt_use_gpgme=yes
+
+######################
+#  Compose settings  #
+######################
+
+
+macro compose Y "<first-entry>\
+<pipe-entry>convert-multipart<enter>\
+<enter-command>source /tmp/neomutt-commands<enter>
+
 
 source ~/.config/mutt/colors-gruvbox.muttrc
 source ~/.config/mutt/powerline.muttrc
