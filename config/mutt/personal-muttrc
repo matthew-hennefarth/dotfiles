@@ -1,5 +1,10 @@
 # vim: filetype=neomuttrc
 set use_threads=reverse sort=date sort_aux=date
+set uncollapse_new = yes # open threads when new mail
+set uncollapse_jump = yes # jump to unread message when uncollapse
+set collapse_unread = no # don't collapse threads with unread mails
+folder-hook . push '<collapse-all>'
+
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
 macro index,pager Md ";<save-message>=[Gmail]/Drafts<enter>" "move mail to drafts"
 macro index,pager Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
@@ -30,12 +35,14 @@ set crypt_use_gpgme=yes
 ######################
 #  Compose settings  #
 ######################
-
-
 macro compose Y "<first-entry>\
 <pipe-entry>convert-multipart<enter>\
 <enter-command>source /tmp/neomutt-commands<enter>
 
+set indent_string=">" 
+
+# Gets me some spell checking!
+set editor = "nvim -c 'set spell spelllang=en'"
 
 source ~/.config/mutt/colors-gruvbox.muttrc
 source ~/.config/mutt/powerline.muttrc
