@@ -1,5 +1,9 @@
 require("gruvbox").setup({
-  italic = false,
+  italic = {
+    strings = false,
+    operators = false,
+    comments = false, 
+  }
 })
 
 local ok, _ = pcall(vim.cmd, "colorscheme gruvbox")
