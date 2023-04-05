@@ -22,12 +22,6 @@ o.colorcolumn = "+1" -- Set the colour column to highlight one column after the 
 -- General Cleanup
 o.viminfo = "%,<800,'10,/50,:100,h,f0,n~/.cache/viminfo"
 
--- Allows transparent background
-vim.cmd [[
-  hi Normal guibg=none
-  hi NonText guibg=none
-]]
-
 -- Mouse usage stuff
 vim.cmd [[set mouse=v]]
 

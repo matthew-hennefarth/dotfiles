@@ -1,4 +1,6 @@
 
+set spell spelllang=en
+
 let g:tex_flavor='latex'
 let g:vimtex_compiler_method='latexmk'
 let g:vimtex_compiler_latexmk={'build_dir': 'build'}

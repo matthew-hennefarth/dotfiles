@@ -27,3 +27,4 @@ window:
     x: 10
     y: 10
   decorations: "Buttonless"
+  opacity: 0.9

@@ -3,3 +3,9 @@ require("gruvbox").setup({
 })
 
 local ok, _ = pcall(vim.cmd, "colorscheme gruvbox")
+
+-- Allows transparent background
+vim.cmd [[
+  hi Normal guibg=none
+  hi NonText guibg=none
+]]
