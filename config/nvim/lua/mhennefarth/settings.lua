@@ -18,6 +18,9 @@ o.laststatus = 2
 o.linebreak = true -- lines wrap at words rathern than random characters
 o.colorcolumn = "+1" -- Set the colour column to highlight one column after the 'textwidth'
 
+-- Highlighting when searching for text
+o.hlsearch = false
+o.incsearch = true
 
 -- General Cleanup
 o.viminfo = "%,<800,'10,/50,:100,h,f0,n~/.cache/viminfo"

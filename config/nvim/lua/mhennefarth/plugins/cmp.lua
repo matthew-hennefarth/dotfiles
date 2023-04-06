@@ -71,3 +71,7 @@ require("rust-tools").setup({
 require('lspconfig').texlab.setup{
   capabilities = capabilities,
 }
+
+require('lspconfig').fortls.setup{
+  capabilities = capabilities,
+}
