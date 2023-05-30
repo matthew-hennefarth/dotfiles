@@ -5,4 +5,5 @@ pandas
 flake8
 matplotlib
 notebook
+seaborn
 pyright
