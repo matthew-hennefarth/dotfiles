@@ -21,6 +21,7 @@ brew "isync"
 brew "msmtp"
 brew "lynx"
 brew "erikw/tap/xdg-urlview"
+brew "lbdb"
 
 # Applications
 cask "firefox"
