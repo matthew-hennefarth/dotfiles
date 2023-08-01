@@ -9,13 +9,14 @@ function upgrade() {
   git fetch upstream
   current_branch=`git branch | grep \* | cut -d' ' -f2`
   git checkout master
+  git pull
   if ! git merge upstream/master | grep "Already up to date."; then
     git push
 
     # Build new library
     pushd pyscf/lib/build
-    cmake ..
-    make
+    cmake .. -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
+    make -j 4
     popd
   fi
   git checkout $current_branch
