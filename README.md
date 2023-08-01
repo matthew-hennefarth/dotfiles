@@ -6,7 +6,9 @@ linux environment, then I will ensure cross-platform support/setup!
 ## Themes and Fonts
 
 I use the gruvbox theme for almost everything. For fonts, I switch between
-DinaRemasterII and Terminess Nerd Font.
+DinaRemasterII and Terminess Nerd Font. Though, because of alacritty not
+allowing backup fonts currently, I stick to the terminess nerd font for the
+symbols.
 
 ## Applications
 - alacritty
@@ -19,9 +21,10 @@ DinaRemasterII and Terminess Nerd Font.
 - virtualenv
 - zsh
 
-## mail
+### mail
 Currently using neomutt for my email. Using (my) [mutt-wizard](https://github.com/matthew-hennefarth/mutt-wizard) as my setup.
 Coupling of things to note:
 - might need to do some cleanup of the config files (in the home directory)
 - need to get python3 markdown package (will include in the requirements.txt at
   some point)
+
