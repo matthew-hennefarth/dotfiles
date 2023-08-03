@@ -1,17 +1,5 @@
-# ----------------------------------------------------------------------------
-# Powerline / nerdfont
-# This is a bit "hackish" due to neomutt limitations
-#
-# Author: Sheoak <contact [at] sheoak.fr>
-# ----------------------------------------------------------------------------
-# ----------------------------------------------------------------------------
-# Powerline / nerdfont
-# This is a bit "hackish" due to neomutt limitations
-#
-# Author: Sheoak <contact [at] sheoak.fr>
-# ----------------------------------------------------------------------------
-set index_format="%2C %zs  %zc  %zt  ｜ %-28.28L  %<X?& > %s%<M? (%1M)&  >%* %{!%d %b, %Y at %H:%M}"
-set pager_format="%n %T  ｜ %s%*   %{!%d %b, %Y at %H:%M:%S} ｜ %<X?%X  > %P"
+set index_format="%2C %zs  %zc  %zt  ｜ %-28.28L  %<X?& > %s%<M? (%1M)&  >%* %[!%d %b %Y at %R]"
+set pager_format="%n %T  ｜ %s%*   %[!%d %b, %Y at %T] ｜ %<X?%X  > %P"
 set status_format = " %D %<u?｜   %u >%<R?｜   %R >%<d?｜   %d >%<t?｜   %t >%<F?｜   %F >%<p?｜   %p> \n  \n"
 set attach_format = "%u%D  %T%-75.75d %<T?%&   >  %5s · %m/%M"
 
@@ -40,10 +28,10 @@ tag-formats "replied" "GR" \
             "attachment" "GA" \
 
 color status default default
-color status yellow default '(||||||)'              # Unread messages count
-color status blue default '(|)'                             # Read messages count icon
-color status yellow default ''                           # Flagged icon
-color status red default ''                              # Pending delete icon
+color status yellow default '(||||||)'
+color status blue default '(|)'            
+color status yellow default ''              
+color status red default ''                 
 color status red default ''
 
 # Message Body   --------------------------------------------------------------------

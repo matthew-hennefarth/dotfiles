@@ -1,3 +1,4 @@
 color index_author blue default
 color index_number brightred blue "~T"
 color sidebar_divider default default
+color indicator black green 

@@ -50,8 +50,6 @@ set query_command="/opt/homebrew/bin/lbdbq '%s'"
 bind editor <Tab> complete-query
 
 # How we reply and quote emails.
-set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
-set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set send_charset = "utf-8:iso-8859-1:us-ascii" # send in utf-8
 
 set forward_format = "Fwd: %s"       # format of subject when forwarding
