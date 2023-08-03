@@ -1,7 +1,7 @@
 # Journals
-http://feeds.feedburner.com/acs/jcisd8 "journals"
-http://feeds.feedburner.com/acs/jpcafh "journals"
-http://feeds.feedburner.com/acs/jpclcd "journals"
+https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jpcbfk "journals"
+https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jcisd8 "journals"
+https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jctcce "journals"
 
 # Github
 https://github.com/pyscf/pyscf/commits.atom "repo"

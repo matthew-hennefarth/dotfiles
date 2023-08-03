@@ -52,6 +52,9 @@ bind editor <Tab> complete-query
 # How we reply and quote emails.
 set send_charset = "utf-8:iso-8859-1:us-ascii" # send in utf-8
 
+# Set time-zone in emails to UTC
+set local_date_header=no
+
 set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set forward_quote                    # include message in forwards
