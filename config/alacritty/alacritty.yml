@@ -8,7 +8,7 @@ env:
 font:
   normal: 
     #family: DinaRemasterII
-    family: Terminess Nerd Font Mono # Fall-back font for weird symbols
+    family: Terminess Nerd Font # Fall-back font for weird symbols
 
   size: 16
   # For thiner fonts (which I like..)

@@ -7,6 +7,7 @@
 commandsFile="/tmp/neomutt-commands"
 markdownFile="/tmp/neomutt-markdown"
 htmlFile="/tmp/neomutt.html"
+plainFile="/tmp/neomutt.txt"
 
 cat - > "${markdownFile}.orig"
 echo -n "push " > "$commandsFile"
@@ -25,14 +26,17 @@ grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2 |
 		sed -i "s#$file#$id#g" "$markdownFile"
 	done
 
+pandoc -f markdown -t html5 --standalone --metadata title=" " --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
+pandoc -f html -t plain --standalone "$htmlFile" > "$plainFile"
+
 if [ "$(grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2  | grep '^cid:' | wc -l)" -gt 0 ]; then
 	echo -n "<attach-file>\"$markdownFile\"<enter><toggle-disposition><toggle-unlink><first-entry><detach-file>" >> "$commandsFile"
+else
+  echo -n "<attach-file>\"$plainFile\"<enter><toggle-disposition><toggle-unlink>" >> "$commandsFile" 
 fi
 
-
-pandoc -f markdown -t html5 --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
-
 # Attach the html file
+#echo -n "<attach-file>\"$plainFile\"<enter>" >> "$commandsFile"
 echo -n "<attach-file>\"$htmlFile\"<enter>" >> "$commandsFile"
 
 # Set it as inline

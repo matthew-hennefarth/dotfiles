@@ -6,6 +6,9 @@ which /opt/homebrew/bin/brew &> /dev/null && eval $(/opt/homebrew/bin/brew shell
 
 # Additional Environmental Variables
 export GPG_TTY=$(tty)
+# Launch new agent on new shell
+gpgconf --launch gpg-agent
+
 export WORKON_HOME=$HOME/Developer/.venvs
 source ${HOME}/.config/zsh/.zsh_local
 
