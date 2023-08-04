@@ -26,7 +26,7 @@ grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2 |
 		sed -i "s#$file#$id#g" "$markdownFile"
 	done
 
-pandoc -f markdown -t html5 --standalone --metadata title=" " --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
+pandoc -f markdown -t html5 --metadata title=" " --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
 pandoc -f html -t plain --standalone "$htmlFile" > "$plainFile"
 
 if [ "$(grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2  | grep '^cid:' | wc -l)" -gt 0 ]; then
@@ -36,7 +36,6 @@ else
 fi
 
 # Attach the html file
-#echo -n "<attach-file>\"$plainFile\"<enter>" >> "$commandsFile"
 echo -n "<attach-file>\"$htmlFile\"<enter>" >> "$commandsFile"
 
 # Set it as inline

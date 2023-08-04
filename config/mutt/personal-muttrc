@@ -1,5 +1,5 @@
 # vim: filetype=neomuttrc
-set use_threads=reverse sort=date sort_aux=date
+set use_threads=reverse sort=last-date sort_aux=date-sent
 set uncollapse_new = yes # open threads when new mail
 set uncollapse_jump = yes # jump to unread message when uncollapse
 set collapse_unread = no # don't collapse threads with unread mails
@@ -45,6 +45,7 @@ macro compose m "<first-entry>\
 <enter-command>source /tmp/neomutt-commands<enter>
 
 set indent_string=">" 
+set date_format="%b %d, %Y at %H:%M"
 
 set query_command="/opt/homebrew/bin/lbdbq '%s'"
 bind editor <Tab> complete-query
