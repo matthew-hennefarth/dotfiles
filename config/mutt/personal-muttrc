@@ -5,6 +5,8 @@ set uncollapse_jump = yes # jump to unread message when uncollapse
 set collapse_unread = no # don't collapse threads with unread mails
 folder-hook . push '<collapse-all>'
 
+macro index O "<shell-escape>mailsync<enter>" "run mailsync to sync all mail"
+
 macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
 macro index,pager Md ";<save-message>=[Gmail]/Drafts<enter>" "move mail to drafts"
 macro index,pager Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
@@ -44,7 +46,6 @@ macro compose m "<first-entry>\
 <pipe-entry>convert-multipart<enter>\
 <enter-command>source /tmp/neomutt-commands<enter>
 
-set indent_string=">" 
 set date_format="%b %d, %Y at %H:%M"
 
 set query_command="/opt/homebrew/bin/lbdbq '%s'"
