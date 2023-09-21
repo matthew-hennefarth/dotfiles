@@ -38,7 +38,6 @@ cask "dataspell"
 cask "pycharm"
 cask "zotero"
 cask "clion"
-cask "skim"
 
 # Fonts
 cask "font-sauce-code-pro-nerd-font"
