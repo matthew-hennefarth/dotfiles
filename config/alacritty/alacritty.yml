@@ -7,8 +7,8 @@ env:
 # Font Specification
 font:
   normal: 
-     family: GohuFont uni14 Nerd Font
-
+    family: GohuFont uni14 Nerd Font Propo 
+  
   size: 14
   # For thiner fonts (which I like..)
   # defaults write org.alacritty AppleFontSmoothing -int 0
@@ -24,5 +24,6 @@ window:
   padding:
     x: 10
     y: 10
+  
   # decorations: "Buttonless"
-  # opacity: 1.0
+  # opacity: 0.95

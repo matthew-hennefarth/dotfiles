@@ -1,9 +1,18 @@
-require("indent_blankline").setup {
-    -- for example, context is off by default, use this to turn it on
-    show_current_context = true,
-    show_current_context_start = true,
-    show_trailing_blankline_indent = false,
-    show_first_indent_level = false,
-    filetype_exclude = { 'tex', 'markdown' },
-    char = '┊',
+require("ibl").setup {
+  whitespace = {
+    remove_blankline_trail = true,
+  },
+  exclude = {
+    filetypes = {'tex', 'markdown'},
+  },
+  indent = {
+    char = '┊'
+  },
 }
+
+local hooks = require "ibl.hooks"
+-- Hide first indent level
+hooks.register(
+  hooks.type.WHITESPACE,
+  hooks.builtin.hide_first_space_indent_level
+)
