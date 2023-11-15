@@ -1,11 +1,11 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {"cpp", "python", "lua", "rust", "fortran", "latex", "bibtex"},
+  ensure_installed = {"cpp", "python", "lua", "rust", "fortran", "bibtex"},
   sync_install = false,
   ignore_install = {""},
   highlight = {
     enable = true,
-    disable = {""},
-    additional_vim_regex_highlighting = false,
+    disable = {"latex"},
+    additional_vim_regex_highlighting = {"latex", "markdown"},
   },
   indent = {
     enable = true, 
