@@ -31,7 +31,9 @@ macro compose m "<first-entry>\
 
 set date_format="%b %d, %Y at %H:%M"
 
-set query_command="/opt/homebrew/bin/lbdbq '%s'"
+# set query_command="/opt/homebrew/bin/lbdbq '%s'"
+set query_command = "echo '' && notmuch address from:/%s/"
+set query_format="%4c %t %-70.70a %-70.70n %?e?(%e)?"
 bind editor <Tab> complete-query
 
 # How we reply and quote emails.
