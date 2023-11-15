@@ -12,9 +12,6 @@ plainFile="/tmp/neomutt.txt"
 cat - > "${markdownFile}.orig"
 echo -n "push " > "$commandsFile"
 
-# fixes the > >>> to >>>> if necessary
-#sed -i.bak 's/^> >/>>/g' ${markdownFile}.orig && rm ${markdownFile}.orig.bak
-
 cp "${markdownFile}.orig" "$markdownFile" 
 
 # adds <br> before each >...

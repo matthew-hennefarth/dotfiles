@@ -7,25 +7,6 @@ folder-hook . push '<collapse-all>'
 
 macro index O "<shell-escape>mailsync<enter>" "run mailsync to sync all mail"
 
-macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"
-macro index,pager Md ";<save-message>=[Gmail]/Drafts<enter>" "move mail to drafts"
-macro index,pager Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"
-macro index,pager gj "<change-folder>=[Gmail]/Spam<enter>" "go to junk"
-macro index,pager Mj ";<save-message>=[Gmail]/Spam<enter>" "move mail to junk"
-macro index,pager Cj ";<copy-message>=[Gmail]/Spam<enter>" "copy mail to junk"
-macro index,pager gt "<change-folder>=[Gmail]/Trash<enter>" "go to trash"
-macro index,pager Mt ";<save-message>=[Gmail]/Trash<enter>" "move mail to trash"
-macro index,pager Ct ";<copy-message>=[Gmail]/Trash<enter>" "copy mail to trash"
-macro index,pager gs "<change-folder>=[Gmail]/Sent Mail<enter>" "go to sent"
-macro index,pager Ms ";<save-message>=[Gmail]/Sent Mail<enter>" "move mail to sent"
-macro index,pager Cs ";<copy-message>=[Gmail]/Sent Mail<enter>" "copy mail to sent"
-
-# labels as read for Gmail
-#macro index l "<modify-labels>-unread<enter><display-message>" "display message"
-
-#unbind \Cn
-#macro index \Cn "<mark-as-new><modify-labels>+unread<enter><sync-mailbox>" "mark as new and unread"
-
 set mark_old=no
 
 set sidebar_folder_indent
@@ -42,11 +23,11 @@ set crypt_opportunistic_encrypt = no
 ######################
 #  Compose settings  #
 ######################
+set edit_headers = yes
 macro compose m "<first-entry>\
 <pipe-entry>convert-multipart<enter>\
 <enter-command>source /tmp/neomutt-commands<enter>
 
-set indent_string="> " 
 set date_format="%b %d, %Y at %H:%M"
 
 set query_command="/opt/homebrew/bin/lbdbq '%s'"
@@ -61,12 +42,14 @@ set local_date_header=no
 set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set forward_quote                    # include message in forwards
-set mime_forward                     # forward attachments as part of body
+set mime_forward = no                # mail body is forwarded as text
+set forward_attachments = yes        # attachments are forwarded with mail
 set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
-set text_flowed=yes                  # correct indentation for plain text
+# set text_flowed=yes                  # correct indentation for plain text
+set reflow_text = no
 unset sig_dashes                     # no dashes before sig
 unset markers
 

@@ -7,10 +7,9 @@ env:
 # Font Specification
 font:
   normal: 
-    #family: DinaRemasterII
-    family: Terminess Nerd Font # Fall-back font for weird symbols
+     family: GohuFont uni14 Nerd Font
 
-  size: 16
+  size: 14
   # For thiner fonts (which I like..)
   # defaults write org.alacritty AppleFontSmoothing -int 0
 

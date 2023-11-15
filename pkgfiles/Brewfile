@@ -27,7 +27,6 @@ brew "pandoc"
 # Applications
 cask "firefox"
 cask "discord"
-#cask "iterm2"
 cask "alacritty"
 cask "spectacle"
 cask "mactex-no-gui"
@@ -38,9 +37,9 @@ cask "dataspell"
 cask "pycharm"
 cask "zotero"
 cask "clion"
-cask "skim"
 
 # Fonts
 cask "font-sauce-code-pro-nerd-font"
+cask "font-gohufont-nerd-font"
 cask "font-terminess-ttf-nerd-font"
 cask "font-computer-modern"
