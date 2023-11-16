@@ -4,11 +4,15 @@ env:
   TERM: xterm-256color
 # Font Specification
 font:
-  normal:
-    family: GohuFont uni14 Nerd Font Propo
-  size: 12
   # For thiner fonts (which I like..)
   # defaults write org.alacritty AppleFontSmoothing -int 0
+  normal:
+    family: GohuFont uni14 Nerd Font Propo
+  size: 14
+  offset:
+    x: 1
+    y: 0
+  draw_bold_text_with_bright_colors: true
 cursor:
   style:
     shape: Beam
@@ -18,6 +22,6 @@ window:
   padding:
     x: 10
     y: 10
-
+  dynamic_title: true
 # decorations: "Buttonless"
 # opacity: 0.95
