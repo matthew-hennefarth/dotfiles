@@ -7,6 +7,7 @@ conform.setup({
 		yaml = { "yamlfmt" },
 		tex = { "latexindent" },
 		python = { "black" },
+		mail = { "mdformat" },
 	},
 	format_on_save = {
 		lsp_fallback = true,

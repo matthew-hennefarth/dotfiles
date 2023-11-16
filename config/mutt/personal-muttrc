@@ -52,8 +52,9 @@ set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
-# set text_flowed=yes                  # correct indentation for plain text
-set reflow_text = no
+set text_flowed = yes                  # correct indentation for plain text
+set reflow_text = yes
+set wrap=0
 unset sig_dashes                     # no dashes before sig
 unset markers
 
