@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
-import os, sys, shutil
+import os
+import sys
+import shutil
 import argparse
 import logging
-import shutil
 import subprocess
 
 LOGGER = logging.getLogger(__name__)
@@ -14,6 +15,7 @@ HOME = os.path.expanduser("~")
 CONFIG = os.path.join(HOME, ".config")
 BREW_FULL_PATH = "/opt/homebrew/bin/brew"
 
+
 def init_logger():
     LOGGER.debug("Changing logger format")
     format = "%(message)s"
@@ -22,9 +24,11 @@ def init_logger():
     LOGGER.debug("Set logger level to WARNING")
 
 
-def generate_symlinks_for(src: str, dst: str, dot_prefix: bool = False, overwrite: bool = False) -> None:
+def generate_symlinks_for(
+    src: str, dst: str, dot_prefix: bool = False, overwrite: bool = False
+) -> None:
     LOGGER.info(f"Installing to {dst}")
-    
+
     configs = [f for f in os.listdir(src) if f != ".DS_Store"]
     for config in configs:
         target = os.path.join(dst, f"{'.' if dot_prefix else ''}{config}")
@@ -59,7 +63,7 @@ def configure_symlinks(overwrite: bool = False):
 
     home_dot_dir = os.path.join(DOTFILE_DIR, "home")
     config_dot_dir = os.path.join(DOTFILE_DIR, "config")
-    
+
     generate_symlinks_for(home_dot_dir, HOME, dot_prefix=True, overwrite=overwrite)
     generate_symlinks_for(config_dot_dir, CONFIG, overwrite=overwrite)
 
@@ -101,7 +105,7 @@ def configure_homebrew() -> None:
 def configure_pkgmanager() -> None:
     if sys.platform == "darwin":
         configure_homebrew()
-    
+
     else:
         LOGGER.error(f"Unknown package manager for {sys.platform}")
 
@@ -112,7 +116,7 @@ def configure_nvim() -> None:
         return
 
     update_cmd = "nvim --headless +PackerSync +q"
-    LOGGER.info(f"Running PackerSync twice")
+    LOGGER.info("Running PackerSync twice")
     LOGGER.debug(f"Running command: {update_cmd}")
     subprocess.check_call(update_cmd, shell=True)
     subprocess.check_call(update_cmd, shell=True)
@@ -122,12 +126,18 @@ def main() -> None:
     init_logger()
 
     parser = argparse.ArgumentParser(
-        prog = "install.py",
-        description = "Installs config files, system packages, and setup nvim",
-        epilog = "Currently only for MacOS, though I will work on porting to Linux over time...")
+        prog="install.py",
+        description="Installs config files, system packages, and setup nvim",
+        epilog="Currently only for MacOS, though I will work on porting to Linux over time...",
+    )
 
     parser.add_argument("-v", "--verbose", action="store_true")
-    parser.add_argument("-o", "--overwrite", action="store_true", help="Overwrite existing symlinks and files for config files")
+    parser.add_argument(
+        "-o",
+        "--overwrite",
+        action="store_true",
+        help="Overwrite existing symlinks and files for config files",
+    )
 
     LOGGER.debug("Parsing command line arguments")
     args = parser.parse_args()
@@ -135,7 +145,7 @@ def main() -> None:
     if args.verbose:
         LOGGER.setLevel(logging.INFO)
         LOGGER.debug("Setting logger level to INFO")
-   
+
     configure_symlinks(overwrite=args.overwrite)
     configure_pkgmanager()
     configure_nvim()
@@ -143,4 +153,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

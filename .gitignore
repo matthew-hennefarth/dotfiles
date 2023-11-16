@@ -4,6 +4,7 @@ Brewfile.lock.json
 config/nvim/autoload/
 config/nvim/plugged/
 config/nvim/plugin/packer_compiled.lu
+config/nvim/spell/
 
 # Why does someone need to see this????
 config/zsh/.zsh_history
