@@ -24,7 +24,8 @@ set crypt_opportunistic_encrypt = no
 ######################
 #  Compose settings  #
 ######################
-set edit_headers = yes
+set edit_headers = yes # Edit headers in nvim
+set auto_edit = yes # Go directly to nvim
 macro compose m "<first-entry>\
 <pipe-entry>convert-multipart<enter>\
 <enter-command>source /tmp/neomutt-commands<enter>

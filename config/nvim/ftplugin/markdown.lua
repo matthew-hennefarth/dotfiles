@@ -1,3 +1,7 @@
+
+vim.opt_local.spell = true
+vim.opt_local.spelllang = "en_us"
+
 vim.opt.wrap = true
-vim.wo.linebreak = true
-vim.opt.textwidth = 80
+
+map("n", "<localleader>ll", ":MarkdownPreviewToggle<CR>")

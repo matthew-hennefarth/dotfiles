@@ -18,7 +18,8 @@ return require('packer').startup(function(use)
   -- My plugins here
   use 'preservim/nerdcommenter' 
   use 'jiangmiao/auto-pairs'
- 
+  use 'junegunn/vim-easy-align' -- align text
+
   -- Different colorschemes
   use 'RRethy/nvim-base16'
   use {
@@ -69,6 +70,17 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- LSP notification/Status
+  use {
+    'mrded/nvim-lsp-notify',
+  }
+  use {
+    'rcarriga/nvim-notify',
+    config = function()
+      require('mhennefarth.plugins.notify')
+    end
+  }
+
   -- LSP and Completion stuff
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -87,13 +99,8 @@ return require('packer').startup(function(use)
     config = function()
       require('mhennefarth.plugins.mason')
     end,
+    requires = {'williamboman/mason-lspconfig.nvim'},
     run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-  }
-  use{
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require('mhennefarth.plugins.mason-lspconfig')
-    end
   }
   
   use {
@@ -103,11 +110,35 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- language servers
+  -- Linter and autoformat
+  use {
+    'mfussenegger/nvim-lint',
+    config = function()
+      require('mhennefarth.plugins.lint')
+    end
+  }
+
+  use {
+    "stevearc/conform.nvim",
+    config = function()
+      require("mhennefarth.plugins.conform")
+    end
+  }
+
+  -- rust tools?
   use 'simrat39/rust-tools.nvim'
 
   -- vimtex
   use 'lervag/vimtex'
+
+  -- notmuch address completiong
+  use 'adborden/vim-notmuch-address'
+
+  -- markdown previewer
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

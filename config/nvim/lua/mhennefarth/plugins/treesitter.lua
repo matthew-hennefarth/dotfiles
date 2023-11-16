@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {"cpp", "python", "lua", "rust", "fortran", "bibtex"},
+  ensure_installed = {"cpp", "python", "lua", "rust", "fortran", "bibtex", "markdown"},
   sync_install = false,
   ignore_install = {""},
   highlight = {
