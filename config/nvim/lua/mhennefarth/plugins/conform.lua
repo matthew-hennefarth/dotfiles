@@ -8,6 +8,7 @@ conform.setup({
 		tex = { "latexindent" },
 		python = { "black" },
 		mail = { "mdformat" },
+		markdown = { "mdformat" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
