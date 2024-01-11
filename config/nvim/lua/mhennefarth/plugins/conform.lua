@@ -5,9 +5,9 @@ conform.setup({
 		lua = { "stylua" },
 		bibtex = { "bibtex-tidy" },
 		yaml = { "yamlfmt" },
-		tex = { "latexindent" },
+		--tex = { "latexindent" },
 		python = { "black" },
-		mail = { "mdformat" },
+		-- mail = { "mdformat" },
 		markdown = { "mdformat" },
 	},
 	format_on_save = {
