@@ -14,17 +14,21 @@ echo -n "push " > "$commandsFile"
 
 cp "${markdownFile}.orig" "$markdownFile" 
 
-# adds <br> before each >...
-sed -i.bak 's/^>/<br>>/g' $markdownFile && rm ${markdownFile}.bak
-
 grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2 |
-	grep -Ev '^(cid:|https?://)' | while read file; do
-		id="cid:$(md5sum "$file" | cut -d ' ' -f 1 )"
-		sed -i "s#$file#$id#g" "$markdownFile"
-	done
+  grep -Ev '^(cid:|https?://)' | while read file; do
+    id="cid:$(md5sum "$file" | cut -d ' ' -f 1 )"
+    sed -i "s#$file#$id#g" "$markdownFile"
+  done
 
-pandoc -f markdown -t html5 --metadata title=" " --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
-pandoc -f html -t plain --standalone "$htmlFile" > "$plainFile"
+cp $markdownFile ~/Desktop
+
+sed -i.bak -E '/^(>)+( >)* [^>\n]+.*[^\\](\\{0}|\\{2,})$/ s/$/\\/g' $markdownFile && rm ${markdownFile}.bak
+
+
+
+pandoc -f markdown-blank_before_blockquote -t html5 --metadata title=" " --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
+
+cp ${markdownFile}.orig $plainFile
 
 if [ "$(grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2  | grep '^cid:' | wc -l)" -gt 0 ]; then
 	echo -n "<attach-file>\"$markdownFile\"<enter><toggle-disposition><toggle-unlink><first-entry><detach-file>" >> "$commandsFile"

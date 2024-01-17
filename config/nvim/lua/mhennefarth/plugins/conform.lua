@@ -3,12 +3,12 @@ local conform = require("conform")
 conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		bibtex = { "bibtex-tidy" },
+		--bibtex = { "bibtex-tidy" },
 		yaml = { "yamlfmt" },
 		--tex = { "latexindent" },
 		python = { "black" },
 		-- mail = { "mdformat" },
-		markdown = { "mdformat" },
+		--markdown = { "mdformat" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
