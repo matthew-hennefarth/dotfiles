@@ -40,22 +40,20 @@ bind editor <Tab> complete-query
 # How we reply and quote emails.
 set send_charset = "utf-8:iso-8859-1:us-ascii" # send in utf-8
 
-# Set time-zone in emails to UTC
-set local_date_header=no
-
+unset local_date_header              # Set time-zone in emails to UTC
 set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set forward_quote                    # include message in forwards
-set mime_forward = no                # mail body is forwarded as text
-set forward_attachments = yes        # attachments are forwarded with mail
-set attribution = "On %d, %n wrote:\n" # format of quoting header
+unset mime_forward                   # mail body is forwarded as text
+set forward_attachments              # attachments are forwarded with mail
+set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
-#set text_flowed = yes                  # correct indentation for plain text
-#set reflow_text = yes
-set wrap=200
-unset sig_dashes                     # no dashes before sig
+set text_flowed                      # correct indentation for plain text
+set reflow_text
+unset sig_on_top
+set sig_dashes                     # no dashes before sig
 unset markers
 
 source ~/.config/mutt/colors-gruvbox.muttrc
