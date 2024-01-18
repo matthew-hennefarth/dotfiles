@@ -18,8 +18,12 @@ set attach_save_dir="~/Downloads/"
 ######################
 #    GPG Encyption   #
 ######################
-set crypt_use_gpgme = yes
-set crypt_opportunistic_encrypt = no
+set crypt_use_gpgme 
+set pgp_self_encrypt
+unset crypt_opportunistic_encrypt
+set crypt_auto_pgp
+set crypt_auto_sign
+bind pager \ek extract-keys
 
 ######################
 #  Compose settings  #
