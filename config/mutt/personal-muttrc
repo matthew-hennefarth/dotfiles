@@ -1,4 +1,14 @@
 # vim: filetype=neomuttrc
+
+# Keybindings
+bind pager D delete-message
+bind pager U undelete-message
+
+set pager_stop     # prevents pager from going to next message
+set pager_read_delay = 2  # seconds before read condition
+
+set pager_index_lines = 5 # number of index lines to show
+
 set use_threads=reverse sort=last-date sort_aux=date-sent
 set uncollapse_new = yes # open threads when new mail
 set uncollapse_jump = yes # jump to unread message when uncollapse
@@ -9,6 +19,7 @@ macro index O "<shell-escape>mailsync<enter>" "run mailsync to sync all mail"
 
 set mark_old=no
 
+unset sidebar_visible
 set sidebar_folder_indent
 set sidebar_indent_string="  "
 set sidebar_width = 27
