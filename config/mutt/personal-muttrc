@@ -29,8 +29,8 @@ bind pager \ek extract-keys
 #  Compose settings  #
 ######################
 set tmpdir = '/tmp/mutt'
-set edit_headers = yes # Edit headers in nvim
-set auto_edit = yes # Go directly to nvim
+set edit_headers          # Edit headers in nvim
+set auto_edit             # Go directly to nvim
 macro compose m "<first-entry>\
 <pipe-entry>convert-multipart<enter>\
 <enter-command>source /tmp/mutt/neomutt-commands<enter>
@@ -49,7 +49,7 @@ unset local_date_header              # Set time-zone in emails to UTC
 set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set forward_quote                    # include message in forwards
-unset mime_forward                   # mail body is forwarded as text
+set mime_forward                     # mail body is forwarded as text
 set forward_attachments              # attachments are forwarded with mail
 set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
