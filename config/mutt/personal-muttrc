@@ -28,11 +28,12 @@ bind pager \ek extract-keys
 ######################
 #  Compose settings  #
 ######################
+set tmpdir = '/tmp/mutt'
 set edit_headers = yes # Edit headers in nvim
 set auto_edit = yes # Go directly to nvim
 macro compose m "<first-entry>\
 <pipe-entry>convert-multipart<enter>\
-<enter-command>source /tmp/neomutt-commands<enter>
+<enter-command>source /tmp/mutt/neomutt-commands<enter>
 
 set date_format="%b %d, %Y at %H:%M"
 

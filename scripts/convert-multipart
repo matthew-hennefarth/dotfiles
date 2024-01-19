@@ -4,10 +4,10 @@
 # https://github.com/neomutt/neomutt/issues/3229
 # https://unix.stackexchange.com/questions/612134/neomutt-run-command-to-attach-file-on-macro-key-press/612194#612194
 
-commandsFile="/tmp/neomutt-commands"
-markdownFile="/tmp/neomutt-markdown"
-htmlFile="/tmp/neomutt.html"
-plainFile="/tmp/neomutt.txt"
+commandsFile="/tmp/mutt/neomutt-commands"
+markdownFile="/tmp/mutt/neomutt-markdown"
+htmlFile="/tmp/mutt/neomutt.html"
+plainFile="/tmp/mutt/neomutt.txt"
 
 cat - > "${markdownFile}.orig"
 echo -n "push " > "$commandsFile"
@@ -24,9 +24,7 @@ cp $markdownFile ~/Desktop
 
 sed -i.bak -E '/^(>)+( >)* [^>\n]+.*[^\\](\\{0}|\\{2,})$/ s/$/\\/g' $markdownFile && rm ${markdownFile}.bak
 
-
-
-pandoc -f markdown-blank_before_blockquote -t html5 --metadata title=" " --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
+pandoc -f markdown-blank_before_blockquote -t html5 --katex --highlight-style=tango --variable=pagetitle:Email --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
 
 cp ${markdownFile}.orig $plainFile
 
