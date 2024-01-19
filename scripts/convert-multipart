@@ -20,7 +20,7 @@ grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2 |
     sed -i "s#$file#$id#g" "$markdownFile"
   done
 
-sed -i.bak -E '/^(>)+( >)* [^>\n]+.*[^\\](\\{0}|\\{2,})$/ s/$/\\/g' $markdownFile && rm ${markdownFile}.bak
+sed -i.bak -E '/^(>)+[^>\n]+.*[^\\](\\{0}|\\{2,})$/ s/$/\\/g' $markdownFile && rm ${markdownFile}.bak
 
 pandoc -f markdown-blank_before_blockquote -t html5 --katex --highlight-style=tango --variable=pagetitle:Email --standalone --template ~/.config/mutt/templates/email.html "$markdownFile" > "$htmlFile"
 
