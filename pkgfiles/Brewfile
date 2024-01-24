@@ -23,6 +23,7 @@ brew "lynx"
 brew "erikw/tap/xdg-urlview"
 brew "pandoc"
 brew "lbdb"
+brew "khard"
 
 # Applications
 cask "firefox"

@@ -3,8 +3,7 @@
 
 # Default Programs
 export EDITOR="nvim"
-export BROWDER="/Applications/Safari.app"
-#export BROWSER="open /opt/homebrew/Caskroom/firefox/106.0.5/Firefox.app"
+export BROWSER="/opt/homebrew/Caskroom/firefox/106.0.5/Firefox.app/Contents/MacOS/firefox"
 
 # Adds ~/.local/bin to path
 export PATH="$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//'):$PATH"

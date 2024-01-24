@@ -2,8 +2,10 @@
 https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jpcbfk "journals"
 https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jcisd8 "journals"
 https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jctcce "journals"
+https://arxiv.org/rss/physics.chem-ph "journals"
+https://pubs.aip.org/rss/site_1000043/1000024.xml "journals"
 
 # Github
-https://github.com/pyscf/pyscf/commits.atom "repo"
-https://github.com/pyscf/pyscf-forge/commits.atom "repo"
-https://github.com/Molcas/OpenMolcas/commits.atom "repo"
+https://rsshub.app/github/pull/pyscf/pyscf/closed "repo"
+https://rsshub.app/github/pull/pyscf/pyscf-forge/closed "repo"
+https://gitlab.com/Molcas/OpenMolcas/-/merge_requests.atom?scope=all&state=merged "repo"

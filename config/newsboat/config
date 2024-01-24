@@ -1,4 +1,10 @@
+article-sort-order date-desc
 auto-reload yes
+
+# Navigation
+goto-next-feed no
+browser "/opt/homebrew/Caskroom/firefox/106.0.5/Firefox.app/Contents/MacOS/firefox %u"
+
 
 # Vim-like binding
 bind-key j down
