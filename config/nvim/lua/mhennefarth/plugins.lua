@@ -132,7 +132,7 @@ return require("packer").startup(function(use)
 	use("adborden/vim-notmuch-address")
 
 	-- lbdb address completion
-	use({ "jalvesaq/cmp-lbdb", branch = "lazy" })
+	use("codybuell/cmp-lbdb")
 
 	-- markdown previewer
 	use({
