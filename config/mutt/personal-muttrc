@@ -76,3 +76,4 @@ unset markers
 
 source ~/.config/mutt/colors-gruvbox.muttrc
 source ~/.config/mutt/powerline.muttrc
+
