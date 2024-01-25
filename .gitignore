@@ -3,7 +3,7 @@
 Brewfile.lock.json
 config/nvim/autoload/
 config/nvim/plugged/
-config/nvim/plugin/packer_compiled.lu
+config/nvim/plugin/packer_compiled.lua
 config/nvim/spell/
 
 # Why does someone need to see this????
