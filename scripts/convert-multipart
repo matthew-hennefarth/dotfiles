@@ -27,6 +27,7 @@ pandoc -f markdown-blank_before_blockquote -t html5 --katex --highlight-style=ta
 sed -i.bak 's/<blockquote>/<blockquote class="gmail_quote" style="padding: 0 7px 0 7px; border-left: 2px solid #cccccc; margin: 0 0 7px 3px;">/g' $htmlFile && rm ${htmlFile}.bak
 
 cp ${markdownFile}.orig $plainFile
+sed -i.bak 's/\\$//g' $plainFile && rm ${plainFile}.bak
 
 if [ "$(grep -Eo '!\[[^]]*\]\([^)]+' "$markdownFile" | cut -d '(' -f 2  | grep '^cid:' | wc -l)" -gt 0 ]; then
 	echo -n "<attach-file>\"$markdownFile\"<enter><toggle-disposition><toggle-unlink><first-entry><detach-file>" >> "$commandsFile"
