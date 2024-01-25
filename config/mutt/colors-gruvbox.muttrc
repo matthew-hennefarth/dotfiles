@@ -1,4 +1,9 @@
 color index_author blue default
-color index_number brightred blue "~T"
 color sidebar_divider default default
 color indicator black green 
+
+# Tagged messaged
+color index black brightcyan "~T"
+color index_author brightred brightcyan "~T"
+color index_subject brightred brightcyan "~T"
+color index_number brightred brightcyan "~T"

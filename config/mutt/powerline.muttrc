@@ -47,6 +47,7 @@ color signature color8 default
 
 # hide "mailto" 
 color body black default  '<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>'
+color body black default  '(mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+)'
 
 # URLs
 color body  color3 default  '(https?|ftp)://[-\.,/%~_:?&=\#a-zA-Z0-9\+]+'
