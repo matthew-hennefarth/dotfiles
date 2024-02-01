@@ -7,7 +7,7 @@ shape = "Beam"
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 14 
 
 [font.normal]
 family = "GohuFont uni14 Nerd Font Propo"

@@ -6,7 +6,7 @@ conform.setup({
 		--bibtex = { "bibtex-tidy" },
 		yaml = { "yamlfmt" },
 		--tex = { "latexindent" },
-		python = { "black" },
+		--python = { "black" },
 		-- mail = { "mdformat" },
 		--markdown = { "mdformat" },
 	},
