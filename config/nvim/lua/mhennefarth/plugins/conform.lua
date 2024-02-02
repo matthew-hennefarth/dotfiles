@@ -6,15 +6,15 @@ conform.setup({
 		--bibtex = { "bibtex-tidy" },
 		yaml = { "yamlfmt" },
 		--tex = { "latexindent" },
-		--python = { "black" },
+		python = { "black" },
 		-- mail = { "mdformat" },
-		--markdown = { "mdformat" },
+		markdown = { "mdformat" },
 	},
-	format_on_save = {
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 1000,
-	},
+	--format_on_save = {
+	--	lsp_fallback = true,
+	--	async = false,
+	--	timeout_ms = 1000,
+	--},
 })
 
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
