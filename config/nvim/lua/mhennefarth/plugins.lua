@@ -67,6 +67,13 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"alexghergh/nvim-tmux-navigation",
+		config = function()
+			require("mhennefarth.plugins.tmux-navigation")
+		end,
+	})
+
 	-- LSP notification/Status
 	use({
 		"mrded/nvim-lsp-notify",

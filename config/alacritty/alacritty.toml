@@ -18,6 +18,7 @@ y = 0
 
 [window]
 dynamic_title = true
+option_as_alt = "Both"
 
 [window.padding]
 x = 10
