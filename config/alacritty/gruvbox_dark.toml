@@ -1,27 +1,28 @@
-[colors.bright]
-black = "0xa39586"
-blue = "0x94b3a8"
-cyan = "0x9dd08e"
-green = "0xc4c431"
-magenta = "0xdc9aab"
-red = "0xfe6142"
-white = "0xefe1bf"
-yellow = "0xfcc73c"
+# Colors (Gruvbox Material Medium Dark)
 
-[colors.normal]
-black = "0x353535"
-blue = "0x549699"
-cyan = "0x79aa7d"
-green = "0xa8a521"
-magenta = "0xbf7897"
-red = "0xd73925"
-white = "0xb7a996"
-yellow = "0xdfa82a"
-
+# Default colors
 [colors.primary]
-background = "0x282828"
-foreground = "0xebdbb2"
+#background = '#282828'
+foreground = '#d4be98'
 
-[colors.selection]
-background = "0x413e3d"
-text = "0xc1c1c1"
+# Normal colors
+[colors.normal]
+black   = '#3c3836'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#d8a657'
+blue    = '#7daea3'
+magenta = '#d3869b'
+cyan    = '#89b482'
+white   = '#d4be98'
+
+# Bright colors (same as normal colors)
+[colors.bright]
+black   = '#3c3836'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#d8a657'
+blue    = '#7daea3'
+magenta = '#d3869b'
+cyan    = '#89b482'
+white   = '#d4be98'
