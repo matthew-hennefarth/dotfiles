@@ -1,8 +1,12 @@
 require("gruvbox").setup({
+  terminal_colors = true,
   italic = {
     strings = false,
     operators = false,
     comments = true,
+  },
+  overrides = {
+    SignColumn = {bg = "none"}
   }
 })
 
