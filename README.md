@@ -5,10 +5,17 @@ linux environment, then I will ensure cross-platform support/setup!
 
 ## Themes and Fonts
 
-I use the gruvbox theme for almost everything. For fonts, I switch between
-DinaRemasterII and Terminess Nerd Font. Though, because of alacritty not
-allowing backup fonts currently, I stick to the terminess nerd font for the
-symbols.
+I use the [gruvbox](https://github.com/morhetz/gruvbox) theme for almost
+everything (though I have modified some of the background colors since I like
+it a bit darker). For fonts, I love the
+[DinaRemasterII](https://github.com/zshoals/Dina-Font-TTF-Remastered), but
+unfortunately there is not a NerdFont patch (maybe can do at some point?).
+Currently switching between
+[Gohu](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Gohu)
+(no bold text...) and
+[SauceCodePro](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro)
+(not really retro vibes). Using [alacritty](https://alacritty.org/) since it
+uses a toml configuration which plays nicely with my dotfiles.
 
 ## Applications
 - alacritty
@@ -28,3 +35,8 @@ Coupling of things to note:
 - need to get python3 markdown package (will include in the requirements.txt at
   some point)
 
+## Todo
+
+- [ ] upgrade from exa to [eza](https://github.com/eza-community/eza).
+- [ ] add alias for ripgrep (`alias grep=rg`). Though this will have consequences.
+- [ ] fix tmux status-left?
