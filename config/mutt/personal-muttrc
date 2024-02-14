@@ -1,7 +1,6 @@
 # vim: filetype=neomuttrc
 
-# adds some spacing between tmux-status bar when I add the help bar
-# unset help
+unset help
 
 # Keybindings
 bind pager D delete-message
