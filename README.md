@@ -39,4 +39,5 @@ Coupling of things to note:
 
 - [ ] upgrade from exa to [eza](https://github.com/eza-community/eza).
 - [ ] add alias for ripgrep (`alias grep=rg`). Though this will have consequences.
-- [ ] fix tmux status-left?
+- [ ] Update tmux status weather to cache results
+- [ ] clean-up tmux-status configuration into better scripts...
