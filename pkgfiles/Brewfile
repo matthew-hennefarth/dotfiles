@@ -35,9 +35,7 @@ cask "xquartz"
 cask "spotify"
 cask "cyberduck"
 cask "dataspell"
-cask "pycharm"
 cask "zotero"
-cask "clion"
 cask "skim"
 
 # Fonts

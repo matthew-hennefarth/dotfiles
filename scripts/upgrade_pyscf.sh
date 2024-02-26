@@ -15,8 +15,11 @@ function upgrade() {
 
     # Build new library
     pushd pyscf/lib/build
-    cmake .. -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
-    make -j 4
+    if ! make -j 4; then
+      echo "make failed, trying to build"
+      cmake .. -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
+      make -j 4
+    fi
     popd
   fi
   git checkout $current_branch
@@ -25,7 +28,9 @@ function upgrade() {
 
 venv activate pyscf
 
+echo "Updating PySCF: $PYSCF_DIR"
 upgrade $PYSCF_DIR
+echo "Updating PySCF-forge: $PYSCF_FORGE_DIR"
 upgrade $PYSCF_FORGE_DIR
 
 venv deactivate

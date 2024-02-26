@@ -16,7 +16,7 @@ CONFIG = os.path.join(HOME, ".config")
 BREW_FULL_PATH = "/opt/homebrew/bin/brew"
 
 
-def init_logger():
+def init_logger() -> None:
     LOGGER.debug("Changing logger format")
     format = "%(message)s"
     logging.basicConfig(format=format)
@@ -58,7 +58,7 @@ def generate_symlinks_for(
         os.symlink(config, target)
 
 
-def configure_symlinks(overwrite: bool = False):
+def configure_symlinks(overwrite: bool = False) -> None:
     LOGGER.info("Creating symlinks")
 
     home_dot_dir = os.path.join(DOTFILE_DIR, "home")
