@@ -13,7 +13,7 @@ brew "gpg"
 brew "gnuplot"
 brew "virtualenv"
 brew "pass"
-brew "exa"
+brew "eza"
 
 # Temp for neomutt
 brew "neomutt"
