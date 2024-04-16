@@ -1,7 +1,7 @@
 set index_format="%2C %zs  %zc  %zt  ｜ %-28.28L  %<X?& > %s%<M? (%1M)&  >%* %[!%d %b %Y at %R]"
 set pager_format="%n %T  ｜ %s%*   %[!%d %b, %Y at %T] ｜ %<X?%X  > %P"
-set status_format = " %D %<u?｜   %u >%<R?｜   %R >%<d?｜   %d >%<t?｜   %t >%<F?｜   %F >%<p?｜   %p> \n  \n"
-set attach_format = "%u%D  %T%-75.75d %<T?%&   >  %5s · %m/%M"
+set status_format = " %D %<u?｜   %u >%<R?｜   %R >%<d?｜   %d >%<t?｜   %t >%<F?｜   %F >%<p?｜   %p>"
+set attach_format = "%u%D  %T%-75.75d %<T?%T&   >  %5s · %m/%M"
 
 index-format-hook attachment_info '=B text/calendar ~X 1' ' '
 index-format-hook attachment_info '=B text/calendar' "  "
