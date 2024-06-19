@@ -10,7 +10,6 @@ o.expandtab = true
 o.number = true
 o.relativenumber = true
 o.showmatch = true
-o.t_Co = 256
 o.smarttab = true
 o.smartindent = true
 o.shiftwidth = 2
