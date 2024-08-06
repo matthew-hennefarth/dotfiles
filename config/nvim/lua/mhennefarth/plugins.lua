@@ -17,6 +17,7 @@ return require("packer").startup(function(use)
 	use("preservim/nerdcommenter")
 	use("jiangmiao/auto-pairs")
 	use("junegunn/vim-easy-align") -- align text
+  use("tpope/vim-fugitive") -- git merge stuff
 
 	-- Different colorschemes
 	use("RRethy/nvim-base16")
