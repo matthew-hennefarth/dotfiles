@@ -16,9 +16,15 @@ function upgrade() {
     # Build new library
     pushd pyscf/lib/build
     if ! make -j 4; then
-      echo "make failed, trying to build"
+      echo "perhaps outdated cmake"
       cmake .. -DENABLE_XCFUN=OFF -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
-      make -j 4
+      
+      if ! make -j 4; then 
+        echo "make failed, trying to rebuild fully"
+        rm -rf ./*
+        cmake .. -DENABLE_XCFUN=OFF -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release
+        make -j 4
+      fi
     fi
     popd
   fi
