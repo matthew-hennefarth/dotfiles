@@ -37,7 +37,9 @@ cask "cyberduck"
 cask "dataspell"
 cask "zotero"
 cask "skim"
+cask "wezterm"
 
+# I still like DinaRemasterII
 # Fonts
 cask "font-sauce-code-pro-nerd-font"
 cask "font-gohufont-nerd-font"
