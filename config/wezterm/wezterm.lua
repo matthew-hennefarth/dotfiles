@@ -3,10 +3,12 @@ local config = {}
 
 config.font = wezterm.font_with_fallback({
 	"DinaRemasterII",
-	"GohuFont uni11 Nerd Font Propo",
+	"GohuFont 14 Nerd Font Propo",
 })
+
 config.font_size = 18
 config.bold_brightens_ansi_colors = false
+config.use_cap_height_to_scale_fallback_fonts = true
 
 config.color_scheme = "GruvboxDarkHard"
 
