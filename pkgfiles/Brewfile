@@ -14,6 +14,7 @@ brew "gnuplot"
 brew "virtualenv"
 brew "pass"
 brew "eza"
+brew "rg"
 
 # Temp for neomutt
 brew "neomutt"
@@ -38,6 +39,7 @@ cask "dataspell"
 cask "zotero"
 cask "skim"
 cask "wezterm"
+cask "keepassxc"
 
 # I still like DinaRemasterII
 # Fonts
