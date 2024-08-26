@@ -9,7 +9,7 @@ conform.setup({
 		python = { "black" },
 		-- mail = { "mdformat" },
 		markdown = { "mdformat" },
-    fortran = { "findent" },
+    fortran = { "fprettify" },
 	},
 	--format_on_save = {
 	--	lsp_fallback = true,
@@ -25,7 +25,3 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
 		timeout_ms = 20000,
 	})
 end, { desc = "Format file or range (in visual mode)" })
-
-conform.formatters.findent = {
-  prepend_args = {"-i4"},
-}
