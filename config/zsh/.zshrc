@@ -98,4 +98,4 @@ which eza &> /dev/null && alias ls="eza --icons=auto --color=auto"
 which rg &> /dev/null && alias grep="rg"
 
 # Load zsh-syntax-highlighting; should be last.
-source ${ZSH_SYNTAX_HIGHLIGHTING_ROOT}/zsh-syntax-highlighting.zsh
+source ${ZSH_SYNTAX_HIGHLIGHTING_ROOT:-/usr/share}/zsh-syntax-highlighting.zsh
