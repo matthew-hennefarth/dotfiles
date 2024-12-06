@@ -65,6 +65,10 @@ def configure_symlinks(overwrite: bool = False) -> None:
     config_dot_dir = os.path.join(DOTFILE_DIR, "config")
 
     generate_symlinks_for(home_dot_dir, HOME, dot_prefix=True, overwrite=overwrite)
+    if not os.path.isdir(CONFIG):
+        LOGGER.info("Creating .config directory")
+        os.mkdir(CONFIG)
+    
     generate_symlinks_for(config_dot_dir, CONFIG, overwrite=overwrite)
 
 
