@@ -8,7 +8,6 @@ brew "tmux"
 brew "clang-format"
 brew "cmake"
 brew "zsh-syntax-highlighting"
-brew "autopep8"
 brew "gpg"
 brew "gnuplot"
 brew "virtualenv"
@@ -43,7 +42,5 @@ cask "keepassxc"
 
 # I still like DinaRemasterII
 # Fonts
-cask "font-sauce-code-pro-nerd-font"
 cask "font-gohufont-nerd-font"
-cask "font-terminess-ttf-nerd-font"
 cask "font-computer-modern"

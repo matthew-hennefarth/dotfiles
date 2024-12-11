@@ -86,16 +86,7 @@ function scp_wrap {
 # Disable rm ./* from prompting a confirmation
 setopt rmstarsilent
 
-# My Aliases
-alias bridges2='ssh bridges2'
-alias midway3='ssh midway3'
-alias midway3-amd='ssh midway3-amd'
-alias tmux='tmux -f ${HOME}/.config/tmux/tmux.conf'
-alias cfg='nvim ${XDG_CONFIG_HOME-$HOME/.config}'
-alias cfgz='nvim $ZDOTDIR'
-alias neomutt='stty discard undef; neomutt'
-which eza &> /dev/null && alias ls="eza --icons=auto --color=auto"
-which rg &> /dev/null && alias grep="rg"
+source alias
 
 # Load zsh-syntax-highlighting; should be last.
 if [[ $(uname) == "Darwin" ]]; then 

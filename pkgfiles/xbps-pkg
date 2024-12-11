@@ -1,6 +1,5 @@
 # needed for neovim Mason
 wget 
-gcc
 
 # Terminal Stuffs
 git
@@ -10,7 +9,12 @@ zsh
 zsh-syntax-highlighting
 eza
 ripgrep
+gcc
+python3-virtualenv
+cmake
+gnupg
 
 # Applications
 wezterm
 firefox
+inkscape
