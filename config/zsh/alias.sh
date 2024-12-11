@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 # My Aliases
 alias bridges2='ssh bridges2'

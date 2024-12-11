@@ -86,7 +86,7 @@ function scp_wrap {
 # Disable rm ./* from prompting a confirmation
 setopt rmstarsilent
 
-source alias
+source ${HOME}/.config/zsh/alias.sh
 
 # Load zsh-syntax-highlighting; should be last.
 if [[ $(uname) == "Darwin" ]]; then 
