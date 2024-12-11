@@ -154,6 +154,11 @@ def main() -> None:
     configure_pkgmanager()
     configure_nvim()
 
+    # other things to do:
+    # 1) ensure ~/.local/share/gnupg exists
+    # 2) ensure !/.local/bin exists
+    # 3) install the DinaRemasterII https://github.com/zshoals/Dina-Font-TTF-Remastered/tree/master to /usr/share/fonts (on linux) unsure where for MacOS
+
 
 if __name__ == "__main__":
     main()

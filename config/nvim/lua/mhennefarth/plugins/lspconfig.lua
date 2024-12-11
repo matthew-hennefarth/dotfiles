@@ -1,8 +1,11 @@
 local lspconfig = require('lspconfig')
 
-lspconfig.pyright.setup {
-  filetypes = {"python"}
-}
+--lspconfig.pyright.setup {
+  --filetypes = {"python"}
+--}
+
+lspconfig.jedi_language_server.setup{}
+
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {

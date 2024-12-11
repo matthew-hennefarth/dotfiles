@@ -10,7 +10,9 @@ export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 
 export WORKON_HOME=$HOME/Developer/.venvs
-source ${HOME}/.config/zsh/.zsh_local
+if [ -f ${HOME}/.config/zsh/.zsh_local ]; then
+  source ${HOME}/.config/zsh/.zsh_local
+fi
 
 # Deal with Virtual Environment
 function __venv_activate {

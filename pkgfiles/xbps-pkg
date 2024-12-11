@@ -1,0 +1,16 @@
+# needed for neovim Mason
+wget 
+gcc
+
+# Terminal Stuffs
+git
+neovim
+tmux
+zsh
+zsh-syntax-highlighting
+eza
+ripgrep
+
+# Applications
+wezterm
+firefox
