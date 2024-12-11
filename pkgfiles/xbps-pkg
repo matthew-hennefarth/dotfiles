@@ -13,8 +13,10 @@ gcc
 python3-virtualenv
 cmake
 gnupg
+texlive-bin
 
 # Applications
 wezterm
 firefox
 inkscape
+keepassxc

@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # My Aliases
+alias sudo='sudo '
 alias bridges2='ssh bridges2'
 alias midway3='ssh midway3'
 alias midway3-amd='ssh midway3-amd'
