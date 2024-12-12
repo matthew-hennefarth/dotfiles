@@ -13,4 +13,4 @@ which eza &> /dev/null && alias ls="eza --icons=auto --color=auto"
 which rg &> /dev/null && alias grep="rg"
 which xbps-install &> /dev/null && alias void-install=xbps-install
 which xbps-query &> /dev/null && alias void-query=xbps-query
-which xbps-remove &> /dev/null && alias void-remover=xbps-remove
+which xbps-remove &> /dev/null && alias void-remove=xbps-remove

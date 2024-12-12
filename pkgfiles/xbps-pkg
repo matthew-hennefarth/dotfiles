@@ -10,10 +10,12 @@ zsh-syntax-highlighting
 eza
 ripgrep
 gcc
+gcc-fortran
 python3-virtualenv
 cmake
 gnupg
 texlive-bin
+make
 
 # Applications
 wezterm
