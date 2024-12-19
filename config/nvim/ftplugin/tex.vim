@@ -11,5 +11,9 @@ let g:vimtex_quickfix_ignore_filters=[
   \ 'packages',
   \ ]
 
-let g:vimtex_view_method = "skim"
-let g:vimtex_view_skim_sync = 1
+if has('unix')
+  let g:vimtex_view_method = "zathura"
+elseif has('mac')
+  let g:vimtex_view_method = "skim"
+  let g:vimtex_view_skim_sync = 1
+endif
