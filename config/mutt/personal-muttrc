@@ -2,6 +2,9 @@
 
 unset help
 
+#MailCap
+set mailcap_path = $HOME/.config/mutt/mailcap
+
 # Keybindings
 bind pager D delete-message
 bind pager U undelete-message
@@ -11,7 +14,8 @@ set pager_read_delay = 2  # seconds before read condition
 
 set pager_index_lines = 5 # number of index lines to show
 
-set use_threads=reverse sort=last-date sort_aux=date-sent
+#set use_threads=reverse sort=last-date sort_aux=date-sent
+set sort=reverse-last-date use_threads=yes sort_aux=date 
 set uncollapse_new          # open threads when new mail
 unset uncollapse_jump         # jump to unread message when uncollapse
 unset collapse_unread       # don't collapse threads with unread mails
@@ -62,7 +66,7 @@ unset local_date_header              # Set time-zone in emails to UTC
 set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set forward_quote                    # include message in forwards
-set mime_forward                     # mail body is forwarded as text
+unset mime_forward                   # mail body is forwarded as text
 set forward_attachments              # attachments are forwarded with mail
 set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
@@ -70,6 +74,8 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set text_flowed                      # correct indentation for plain text
 set reflow_text
+set reflow_space_quotes
+set reflow_wrap = 72
 unset sig_on_top
 set sig_dashes                     # no dashes before sig
 unset markers

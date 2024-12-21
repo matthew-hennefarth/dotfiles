@@ -152,6 +152,7 @@ def main() -> None:
 
     configure_symlinks(overwrite=args.overwrite)
     configure_pkgmanager()
+    # This is not working I think with the PackerSync???
     configure_nvim()
 
     # other things to do:

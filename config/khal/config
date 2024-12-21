@@ -1,0 +1,12 @@
+[calendars]
+[[personal]]
+path = ~/.local/share/calendars/gmail/matthew.hennefarth@gmail.com
+color = light cyan
+
+[[family]]
+path = ~/.local/share/calendars/gmail/family08514959947149220983@group.calendar.google.com
+color = yellow
+
+[[holidays]]
+path = ~/.local/share/calendars/gmail/cln2stbjc4hmgrrcd5i62ua0ctp6utbg5pr2sor1dhimsp31e8n6errfctm6abj3dtmg@virtual
+color = light green

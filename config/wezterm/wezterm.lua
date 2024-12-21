@@ -5,14 +5,14 @@ local is_linux <const> = wezterm.target_triple:find("linux") ~= nil
 local is_darwin <const> = wezterm.target_triple:find("darwin") ~= nil
 
 config.font = wezterm.font_with_fallback({
-  "DinaRemasterII",
-  "GohuFont 14 Nerd Font Propo",
+	"DinaRemasterII",
+	"GohuFont 14 Nerd Font Mono",
 })
 
 if is_darwin then
-  config.font_size = 18
+	config.font_size = 18
 elseif is_linux then
-  config.font_size = 12
+	config.font_size = 12
 end
 
 config.bold_brightens_ansi_colors = false
