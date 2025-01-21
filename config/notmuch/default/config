@@ -1,5 +1,3 @@
-[database]
-path=~/.local/share/mail
 [user]
 name=matthew.hennefarth
 primary_email=matthew.hennefarth@gmail.com
