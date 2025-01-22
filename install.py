@@ -35,7 +35,7 @@ def generate_symlink(src: str, dst: str, overwrite: bool = False) -> None:
 
             elif os.path.isdir(dst):
                 LOGGER.debug(f"Removing {dst} (sym link directory)")
-                os.rmdir(target)
+                os.rmdir(dst)
 
             else:
                 LOGGER.debug(f"Removing {dst}")
@@ -129,11 +129,15 @@ def configure_nvim() -> None:
         LOGGER.error("Neovim is not installed!")
         return
 
-    update_cmd = "nvim --headless +PackerSync +q"
-    LOGGER.info("Running PackerSync twice")
+    update_cmd = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+    LOGGER.info("Running PackerSync")
     LOGGER.debug(f"Running command: {update_cmd}")
     subprocess.check_call(update_cmd, shell=True)
-    subprocess.check_call(update_cmd, shell=True)
+
+    ts_cmd = "nvim -c 'TSInstallSync maintained' -c q"
+    LOGGER.info("Running TSInstallSync")
+    LOGGER.debug(f"Running command: {ts_cmd}")
+    subprocess.check_call(ts_cmd, shell=True)
 
 
 def main() -> None:
@@ -162,7 +166,6 @@ def main() -> None:
 
     configure_symlinks(overwrite=args.overwrite)
     configure_pkgmanager()
-    # This is not working I think with the PackerSync???
     configure_nvim()
 
     # other things to do:
