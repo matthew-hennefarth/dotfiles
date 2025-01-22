@@ -23,6 +23,9 @@ isync
 notmuch
 neomutt
 lynx
+tree
+msmtp
+xdg-utils
 
 # Applications
 wezterm

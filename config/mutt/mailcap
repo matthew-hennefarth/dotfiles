@@ -1,11 +1,10 @@
 text/plain; $EDITOR %s ;
-text/html; ~/.local/lib/mutt-wizard/openfile %s ; nametemplate=%s.html
+text/html; mutt_openfile.sh %s ; nametemplate=%s.html
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=72 %s; nametemplate=%s.html; copiousoutput;
-text/html; pandoc -f html -t gfm-raw_html %s; nametemplate=%s.html; copiousoutput;
 text/calendar; khal printics %s; copiousoutput;
 
-image/*; ~/.local/lib/mutt-wizard/openfile %s ;
-application/pdf; ~/.local/lib/mutt-wizard/openfile %s ;
+image/*; mutt_openfile.sh %s ;
+application/pdf; mutt_openfile.sh %s ;
 application/pgp-encrypted; gpg -d '%s'; copiousoutput;
 application/pgp-keys; gpg --import '%s'; copiousoutput;
 application/x-subrip; $EDITOR %s ;
