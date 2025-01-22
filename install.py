@@ -24,6 +24,31 @@ def init_logger() -> None:
     LOGGER.debug("Set logger level to WARNING")
 
 
+def generate_symlink(src: str, dst: str, overwrite: bool = False) -> None:
+    if os.path.exists(dst) or os.path.islink(dst):
+        log_string = f"{dst} already exists..."
+        if overwrite:
+            LOGGER.info(f"{log_string} Overwriting")
+            if os.path.isdir(dst) and not os.path.islink(dst):
+                LOGGER.debug(f"Removing {dst} (pure directory)")
+                shutil.rmtree(dst)
+
+            elif os.path.isdir(dst):
+                LOGGER.debug(f"Removing {dst} (sym link directory)")
+                os.rmdir(target)
+
+            else:
+                LOGGER.debug(f"Removing {dst}")
+                os.unlink(dst)
+        
+        else:
+            LOGGER.info(f"{log_string} Skipping")
+            return
+    
+    LOGGER.info(f"Creating symlink {src} --> {dst}")
+    os.symlink(src, dst)
+
+
 def generate_symlinks_for(
     src: str, dst: str, dot_prefix: bool = False, overwrite: bool = False
 ) -> None:
@@ -33,29 +58,8 @@ def generate_symlinks_for(
     for config in configs:
         target = os.path.join(dst, f"{'.' if dot_prefix else ''}{config}")
         config = os.path.join(src, config)
-
-        if os.path.exists(target) or os.path.islink(target):
-            log_string = f"{target} already exists..."
-            if overwrite:
-                LOGGER.info(f"{log_string} Overwriting")
-                if os.path.isdir(target) and not os.path.islink(target):
-                    LOGGER.debug(f"Removing {target} (pure directory)")
-                    shutil.rmtree(target)
-
-                elif os.path.isdir(target):
-                    LOGGER.debug(f"Removing {target} (sym link directory)")
-                    os.rmdir(target)
-
-                else:
-                    LOGGER.debug(f"Removing {target}")
-                    os.unlink(target)
-
-            else:
-                LOGGER.info(f"{log_string} Skipping")
-                continue
-
-        LOGGER.info(f"Creating symlink {config} --> {target}")
-        os.symlink(config, target)
+        
+        generate_symlink(config, target, overwrite=overwrite)
 
 
 def configure_symlinks(overwrite: bool = False) -> None:
@@ -65,6 +69,12 @@ def configure_symlinks(overwrite: bool = False) -> None:
     config_dot_dir = os.path.join(DOTFILE_DIR, "config")
 
     generate_symlinks_for(home_dot_dir, HOME, dot_prefix=True, overwrite=overwrite)
+
+    LOGGER.info("Installing scripts")
+    scripts_dir = os.path.join(DOTFILE_DIR, "scripts")
+    target = os.path.join(HOME, ".local/bin/scripts")
+    generate_symlink(scripts_dir, target, overwrite=overwrite)
+
     if not os.path.isdir(CONFIG):
         LOGGER.info("Creating .config directory")
         os.mkdir(CONFIG)

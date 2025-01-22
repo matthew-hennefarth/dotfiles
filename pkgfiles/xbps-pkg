@@ -17,6 +17,13 @@ gnupg
 texlive-bin
 make
 
+# neomutt
+cyrus-sasl-xoauth2 # needed for XOAUTH2 in isync
+isync
+notmuch
+neomutt
+lynx
+
 # Applications
 wezterm
 firefox
