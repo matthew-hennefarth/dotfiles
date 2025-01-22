@@ -27,14 +27,16 @@ require("cmp").setup({
 		{ name = "luasnip" }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.
 		-- { name = 'snippy' }, -- For snippy users.
-		{ name = "lbdb", 
-      option = {
-        filetypes = {
-          'mail',
-        },
-			  mail_header_only = true,
-		  },
-    },
+		{
+			name = "lbdb",
+			option = {
+				filetypes = {
+					"mail",
+				},
+				mail_header_only = true,
+				name_char = "",
+			},
+		},
 	}),
 })
 
