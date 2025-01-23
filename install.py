@@ -174,6 +174,7 @@ def main() -> None:
     # 3) install the DinaRemasterII
     #   https://github.com/zshoals/Dina-Font-TTF-Remastered/tree/master to
     #   /usr/share/fonts (on linux) unsure where for MacOS
+    # 4) symlink ~/.gnupg to ~/.local/share/gnupg (and maybe also include the conf files in this repo?)
 
 
 if __name__ == "__main__":
