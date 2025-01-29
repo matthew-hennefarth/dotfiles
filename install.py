@@ -40,11 +40,11 @@ def generate_symlink(src: str, dst: str, overwrite: bool = False) -> None:
             else:
                 LOGGER.debug(f"Removing {dst}")
                 os.unlink(dst)
-        
+
         else:
             LOGGER.info(f"{log_string} Skipping")
             return
-    
+
     LOGGER.info(f"Creating symlink {src} --> {dst}")
     os.symlink(src, dst)
 
@@ -58,7 +58,7 @@ def generate_symlinks_for(
     for config in configs:
         target = os.path.join(dst, f"{'.' if dot_prefix else ''}{config}")
         config = os.path.join(src, config)
-        
+
         generate_symlink(config, target, overwrite=overwrite)
 
 
@@ -129,7 +129,9 @@ def configure_nvim() -> None:
         LOGGER.error("Neovim is not installed!")
         return
 
-    update_cmd = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+    update_cmd = (
+        "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+    )
     LOGGER.info("Running PackerSync")
     LOGGER.debug(f"Running command: {update_cmd}")
     subprocess.check_call(update_cmd, shell=True)
@@ -138,6 +140,22 @@ def configure_nvim() -> None:
     LOGGER.info("Running TSInstallSync")
     LOGGER.debug(f"Running command: {ts_cmd}")
     subprocess.check_call(ts_cmd, shell=True)
+
+
+def configure_runit_services(overwrite=False) -> None:
+    if sys.platform == "darwin":
+        LOGGER.debug("No runit services to install on macos")
+        return
+
+    LOGGER.info("Installing personal runit services...")
+
+    SERVICE_DIR = os.path.join(HOME, ".service")
+    SV_DIR = os.path.join(HOME, ".config/sv")
+    if not os.path.isdir(SERVICE_DIR):
+        LOGGER.info("Creating .service directory")
+        os.mkdir(SERVICE_DIR)
+
+    generate_symlinks_for(SV_DIR, SERVICE_DIR, dot_prefix=False, overwrite=overwrite)
 
 
 def main() -> None:
@@ -167,6 +185,7 @@ def main() -> None:
     configure_symlinks(overwrite=args.overwrite)
     configure_pkgmanager()
     configure_nvim()
+    configure_runit_services(overwrite=args.overwrite)
 
     # other things to do:
     # 1) ensure ~/.local/share/gnupg exists
