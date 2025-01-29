@@ -47,7 +47,7 @@ def copy_dir(src: str, dst: str, overwrite: bool = False) -> None:
             try:
                 rm_old(dst)
             except PermissionError as e:
-                LOGGER.error(e) 
+                LOGGER.error(e)
                 LOGGER.error("Failed to remove directory: Permission denied")
                 raise e
 
@@ -100,13 +100,13 @@ def configure_symlinks(overwrite: bool = False) -> None:
 
     LOGGER.info("Installing config files")
     generate_symlinks_for(home_dot_dir, HOME, dot_prefix=True, overwrite=overwrite)
-   
+
     if not os.path.isdir(CONFIG):
         LOGGER.debug("Creating .config directory")
         os.mkdir(CONFIG)
 
     generate_symlinks_for(config_dot_dir, CONFIG, overwrite=overwrite)
-    
+
     LOGGER.info("\nInstalling scripts")
     scripts_dir = os.path.join(DOTFILE_DIR, "scripts")
     USER_BIN = os.path.join(HOME, ".local/bin")
@@ -179,6 +179,7 @@ def configure_nvim() -> None:
     LOGGER.debug(f"Running command: {ts_cmd}")
     subprocess.check_call(ts_cmd, shell=True)
 
+
 def configure_root_runit(overwrite: bool = False) -> None:
     LOGGER.debug("Installing global runit services...")
     INSTALL_SV = os.path.join(DOTFILE_DIR, "etc/sv")
@@ -194,12 +195,13 @@ def configure_root_runit(overwrite: bool = False) -> None:
             dst = os.path.join(ROOT_SV_DIR, fd.name)
             try:
                 copy_dir(src, dst, overwrite=overwrite)
-                src = dst 
-                dst = os.path.join(ROOT_SERVICE_DIR, fd.name) 
+                src = dst
+                dst = os.path.join(ROOT_SERVICE_DIR, fd.name)
                 generate_symlink(src, dst, overwrite=overwrite)
-            
+
             except PermissionError:
                 LOGGER.warning("Installing root runit services requires sudo privilege")
+
 
 def configure_user_runit(overwrite: bool = False) -> None:
     LOGGER.debug("Installing personal runit services...")
@@ -218,7 +220,7 @@ def configure_runit_services(overwrite: bool = False) -> None:
         return
 
     LOGGER.info("\nInstalling runit services")
-    configure_root_runit(overwrite=overwrite)            
+    configure_root_runit(overwrite=overwrite)
     configure_user_runit(overwrite=overwrite)
 
 
