@@ -17,6 +17,8 @@ gnupg
 texlive-bin
 make
 
+nodejs # for jedi-language server
+
 # neomutt
 cyrus-sasl-xoauth2 # needed for XOAUTH2 in isync
 isync

@@ -61,14 +61,34 @@ charging_symbol(){
   fi
 }
 
-main(){
+darwin_power(){
   lines=`pmset -g batt | wc -l`
-  if [[ "$lines" -eq "1" ]]; then
+  if [ "$lines" -eq "1" ]; then
     echo "󰚥 AC"
   else
     remaining=`pmset -g batt | grep -o "[0-9]\{1,3\}%" | cut -d% -f1`
     symbol=$(charging_symbol $remaining)
     echo $symbol $remaining%
+  fi
+}
+
+linux_power(){
+  num_devices=`upower -e | grep '/battery' | wc -l`
+  if [ "$num_devices" -eq "0" ]; then 
+    echo "󰚥 AC"
+  else 
+    echo "unfinished"
+  fi
+}
+
+main(){
+  unamestr=`uname`
+  if [ "$unamestr" = "Darwin" ]; then
+    darwin_power
+  elif [ "$unamestr" = "Linux" ]; then
+    linux_power
+  else
+    echo "unknown operating system"
   fi
 }
 main

@@ -17,3 +17,6 @@ config/zsh/.zcompcache
 config/mutt/accounts
 config/mutt/muttrc
 config/mutt/.mailsynclastrun
+
+# Temporary/Running info
+config/sv/*/supervise/*
