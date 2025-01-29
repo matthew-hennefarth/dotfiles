@@ -20,29 +20,59 @@ def init_logger() -> None:
     LOGGER.debug("Changing logger format")
     format = "%(message)s"
     logging.basicConfig(format=format)
-    LOGGER.setLevel(logging.WARNING)
+    LOGGER.setLevel(logging.INFO)
     LOGGER.debug("Set logger level to WARNING")
+
+
+def rm_old(dst: str):
+    if os.path.islink(dst):
+        LOGGER.debug(f"Removing {dst} (sym link)")
+        os.unlink(dst)
+
+    elif os.path.isdir(dst):
+        LOGGER.debug(f"Removing {dst} (pure directory)")
+        shutil.rmtree(dst)
+
+    elif os.path.isfile(dst):
+        LOGGER.debug(f"Removing {dst} (pure file)")
+        os.remove(dst)
+
+
+def copy_dir(src: str, dst: str, overwrite: bool = False) -> None:
+    assert os.path.isdir(src)
+    if os.path.exists(dst) or os.path.islink(dst):
+        log_string = f"{dst} already exists..."
+        if overwrite:
+            LOGGER.debug(f"{log_string} Overwriting")
+            try:
+                rm_old(dst)
+            except PermissionError as e:
+                LOGGER.error(e) 
+                LOGGER.error("Failed to remove directory: Permission denied")
+                raise e
+
+        else:
+            LOGGER.debug(f"{log_string} Skipping")
+            return
+
+    LOGGER.info(f"Copying directory {src} --> {dst}")
+    shutil.copytree(src, dst)
 
 
 def generate_symlink(src: str, dst: str, overwrite: bool = False) -> None:
     if os.path.exists(dst) or os.path.islink(dst):
         log_string = f"{dst} already exists..."
         if overwrite:
-            LOGGER.info(f"{log_string} Overwriting")
-            if os.path.isdir(dst) and not os.path.islink(dst):
-                LOGGER.debug(f"Removing {dst} (pure directory)")
-                shutil.rmtree(dst)
-
-            elif os.path.isdir(dst):
-                LOGGER.debug(f"Removing {dst} (sym link directory)")
-                os.rmdir(dst)
-
-            else:
-                LOGGER.debug(f"Removing {dst}")
-                os.unlink(dst)
+            LOGGER.debug(f"{log_string} Overwriting")
+            try:
+                rm_old(dst)
+            except PermissionError as e:
+                LOGGER.error(e)
+                LOGGER.error("Failed to remove old: Permission denied")
+                raise e
 
         else:
-            LOGGER.info(f"{log_string} Skipping")
+            LOGGER.debug(f"{log_string} Skipping")
             return
 
     LOGGER.info(f"Creating symlink {src} --> {dst}")
@@ -52,7 +82,7 @@ def generate_symlink(src: str, dst: str, overwrite: bool = False) -> None:
 def generate_symlinks_for(
     src: str, dst: str, dot_prefix: bool = False, overwrite: bool = False
 ) -> None:
-    LOGGER.info(f"Installing to {dst}")
+    LOGGER.debug(f"Installing to {dst}")
 
     configs = [f for f in os.listdir(src) if f != ".DS_Store"]
     for config in configs:
@@ -63,23 +93,29 @@ def generate_symlinks_for(
 
 
 def configure_symlinks(overwrite: bool = False) -> None:
-    LOGGER.info("Creating symlinks")
+    LOGGER.debug("Creating symlinks")
 
     home_dot_dir = os.path.join(DOTFILE_DIR, "home")
     config_dot_dir = os.path.join(DOTFILE_DIR, "config")
 
+    LOGGER.info("Installing config files")
     generate_symlinks_for(home_dot_dir, HOME, dot_prefix=True, overwrite=overwrite)
-
-    LOGGER.info("Installing scripts")
-    scripts_dir = os.path.join(DOTFILE_DIR, "scripts")
-    target = os.path.join(HOME, ".local/bin/scripts")
-    generate_symlink(scripts_dir, target, overwrite=overwrite)
-
+   
     if not os.path.isdir(CONFIG):
-        LOGGER.info("Creating .config directory")
+        LOGGER.debug("Creating .config directory")
         os.mkdir(CONFIG)
 
     generate_symlinks_for(config_dot_dir, CONFIG, overwrite=overwrite)
+    
+    LOGGER.info("\nInstalling scripts")
+    scripts_dir = os.path.join(DOTFILE_DIR, "scripts")
+    USER_BIN = os.path.join(HOME, ".local/bin")
+    if not os.path.exists(USER_BIN):
+        LOGGER.debug("Creating .local/bin directory")
+        os.makedirs(USER_BIN)
+
+    target = os.path.join(USER_BIN, "scripts")
+    generate_symlink(scripts_dir, target, overwrite=overwrite)
 
 
 def homebrew_installed() -> bool:
@@ -117,6 +153,7 @@ def configure_homebrew() -> None:
 
 
 def configure_pkgmanager() -> None:
+    LOGGER.debug("Configuring package manager")
     if sys.platform == "darwin":
         configure_homebrew()
 
@@ -125,6 +162,7 @@ def configure_pkgmanager() -> None:
 
 
 def configure_nvim() -> None:
+    LOGGER.info("\nConfiguring NeoVim")
     if not nvim_installed():
         LOGGER.error("Neovim is not installed!")
         return
@@ -141,14 +179,30 @@ def configure_nvim() -> None:
     LOGGER.debug(f"Running command: {ts_cmd}")
     subprocess.check_call(ts_cmd, shell=True)
 
+def configure_root_runit(overwrite: bool = False) -> None:
+    LOGGER.debug("Installing global runit services...")
+    INSTALL_SV = os.path.join(DOTFILE_DIR, "etc/sv")
+    ROOT_SV_DIR = "/etc/sv"
+    ROOT_SERVICE_DIR = "/var/service"
 
-def configure_runit_services(overwrite=False) -> None:
-    if sys.platform == "darwin":
-        LOGGER.debug("No runit services to install on macos")
-        return
+    with os.scandir(INSTALL_SV) as file_it:
+        for fd in file_it:
+            if not fd.is_dir():
+                continue
+            LOGGER.info(f"Installing service {fd.name}")
+            src = fd.path
+            dst = os.path.join(ROOT_SV_DIR, fd.name)
+            try:
+                copy_dir(src, dst, overwrite=overwrite)
+                src = dst 
+                dst = os.path.join(ROOT_SERVICE_DIR, fd.name) 
+                generate_symlink(src, dst, overwrite=overwrite)
+            
+            except PermissionError:
+                LOGGER.warning("Installing root runit services requires sudo privilege")
 
-    LOGGER.info("Installing personal runit services...")
-
+def configure_user_runit(overwrite: bool = False) -> None:
+    LOGGER.debug("Installing personal runit services...")
     SERVICE_DIR = os.path.join(HOME, ".service")
     SV_DIR = os.path.join(HOME, ".config/sv")
     if not os.path.isdir(SERVICE_DIR):
@@ -156,6 +210,16 @@ def configure_runit_services(overwrite=False) -> None:
         os.mkdir(SERVICE_DIR)
 
     generate_symlinks_for(SV_DIR, SERVICE_DIR, dot_prefix=False, overwrite=overwrite)
+
+
+def configure_runit_services(overwrite: bool = False) -> None:
+    if sys.platform == "darwin":
+        LOGGER.debug("No runit services to install on macos")
+        return
+
+    LOGGER.info("\nInstalling runit services")
+    configure_root_runit(overwrite=overwrite)            
+    configure_user_runit(overwrite=overwrite)
 
 
 def main() -> None:
@@ -179,8 +243,8 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.verbose:
-        LOGGER.setLevel(logging.INFO)
-        LOGGER.debug("Setting logger level to INFO")
+        LOGGER.setLevel(logging.DEBUG)
+        LOGGER.debug("Setting logger level to DEBUG")
 
     configure_symlinks(overwrite=args.overwrite)
     configure_pkgmanager()
@@ -189,7 +253,6 @@ def main() -> None:
 
     # other things to do:
     # 1) ensure ~/.local/share/gnupg exists
-    # 2) ensure !/.local/bin exists
     # 3) install the DinaRemasterII
     #   https://github.com/zshoals/Dina-Font-TTF-Remastered/tree/master to
     #   /usr/share/fonts (on linux) unsure where for MacOS
