@@ -30,6 +30,7 @@ export NOTMUCH_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/notmuch/default/config"
 export CCACHE_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/ccache"
 export _JAVA_OPTIONS=-Djavafx.cachedir="${XDG_CACHE_HOME:-$HOME/.cache}/openjfx"
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
+export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/mbsyncrc"
 
 export RUSTUP_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/rustup"
 export CARGO_HOME="${XDG_CACHE_HOME:-$HOME/.cache}/cargo"

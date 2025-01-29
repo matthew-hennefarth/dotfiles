@@ -17,6 +17,7 @@ gnupg
 texlive-bin
 make
 snooze #cron replacement??
+lf
 
 nodejs # for jedi-language server
 
