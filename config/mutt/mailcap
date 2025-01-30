@@ -1,7 +1,7 @@
 text/plain; $EDITOR %s ;
 text/html; mutt_openfile.sh %s ; nametemplate=%s.html
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=72 %s; nametemplate=%s.html; copiousoutput;
-text/calendar; khal printics %s; copiousoutput;
+text/calendar; khal printics --format "{organizer} is inviting you to: {title}{nl}From: {start} to {end}{nl}At: {location}{nl}Status: {status}{nl}{nl}Description:{nl}{description}" %s | tail -n+2 ; copiousoutput;
 
 image/*; mutt_openfile.sh %s ;
 application/pdf; mutt_openfile.sh %s ;

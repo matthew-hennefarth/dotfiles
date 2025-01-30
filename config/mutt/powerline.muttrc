@@ -1,3 +1,4 @@
+# vim: filetype=neomuttrc
 set index_format="%2C %zs  %zc  %zt  ｜ %-28.28L  %<X?& > %s%<M? (%1M)&  >%* %[!%d %b %Y at %R]"
 set pager_format="%n %T  ｜ %s%*   %[!%d %b, %Y at %T] ｜ %<X?%X  > %P"
 set status_format = " %D %<u?｜   %u >%<R?｜   %R >%<d?｜   %d >%<t?｜   %t >%<F?｜   %F >%<p?｜   %p>"

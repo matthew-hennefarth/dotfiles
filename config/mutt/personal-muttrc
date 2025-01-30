@@ -5,9 +5,10 @@ unset help
 # MailCap
 set mailcap_path = $HOME/.config/mutt/mailcap
 auto_view text/html # automatically show html (mailcap uses lynx)
+auto_view text/calendar # automatically show html (mailcap uses lynx)
 auto_view application/pgp-encrypted
-set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Suppress autoview messages.
-alternative_order text/plain text/enriched text/html
+set display_filter = "tac | sed '/\\\[-- Autoview/d' | tac" # Suppress autoview messages.
+alternative_order text/plain text/enriched text/calendar text/html
 
 # Keybindings
 bind pager D delete-message
