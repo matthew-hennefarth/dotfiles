@@ -1,0 +1,36 @@
+[general]
+status_path = "~/.cache/vdirsyncer/status/"
+
+[pair personal_google_calendar]
+a = "personal_google_calendar_local"
+b = "personal_google_calendar_remote"
+collections = ["from a", "from b"]
+conflict_resolution = "b wins"
+
+[storage personal_google_calendar_remote]
+type = "google_calendar"
+token_file = "~/.cache/vdirsyncer/caldav_token"
+client_id = "406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com"
+client_secret = "kSmqreRr0qwBWJgbf5Y-PjSU"
+
+[storage personal_google_calendar_local]
+type = "filesystem"
+path = "~/.local/share/calendars/gmail"
+fileext = ".ics"
+
+[pair personal_google_contacts]
+a = "personal_google_contacts_local"
+b = "personal_google_contacts_remote"
+collections = ["from a", "from b"]
+conflict_resolution = "b wins"
+
+[storage personal_google_contacts_remote]
+type = "google_contacts"
+token_file = "~/.cache/vdirsyncer/carddav_token"
+client_id = "406964657835-aq8lmia8j95dhl1a2bvharmfk3t1hgqj.apps.googleusercontent.com"
+client_secret = "kSmqreRr0qwBWJgbf5Y-PjSU"
+
+[storage personal_google_contacts_local]
+type = "filesystem"
+path = "~/.local/share/contacts/gmail"
+fileext = ".vcf"
