@@ -30,6 +30,9 @@ lynx
 tree
 msmtp
 xdg-utils
+khard
+khal
+# vdirsyncer, this needs to be installed with pip at the moment...
 
 # Applications
 wezterm
