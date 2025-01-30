@@ -14,9 +14,14 @@ def coordlines_to_data(line):
     x = float(tokens[0]) * BOHR_TO_ANGSTROM
     y = float(tokens[1]) * BOHR_TO_ANGSTROM
     z = float(tokens[2]) * BOHR_TO_ANGSTROM
-    atom_type = tokens[3].upper()
 
-    return (atom_type, x, y, z)
+    atom_type = tokens[3].upper()
+    
+    frozen = False
+    if len(tokens) == 5:
+        frozen = tokens[4].upper() == 'F'
+
+    return (atom_type, x, y, z, frozen)
 
 
 if __name__ == "__main__":
@@ -29,5 +34,5 @@ if __name__ == "__main__":
     print( ".xyz output generated from file:", coord_filename)
 
     for line in lines[1:-1]:
-        (atom_type, x, y, z) = coordlines_to_data(line)
-        print(" %-2s    %20.12f %20.12f %20.12f" % (atom_type, x, y, z))
+        (atom_type, x, y, z, frozen) = coordlines_to_data(line)
+        print(f"{atom_type:>2}   {x:20.12f} {y:20.12f} {z:20.12f}{' F' if frozen else ''}")
