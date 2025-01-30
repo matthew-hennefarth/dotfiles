@@ -2,14 +2,18 @@
 
 unset help
 
-#MailCap
+# MailCap
 set mailcap_path = $HOME/.config/mutt/mailcap
+auto_view text/html # automatically show html (mailcap uses lynx)
+auto_view application/pgp-encrypted
+set display_filter = "tac | sed '/\\\[-- Autoview/,+1d' | tac" # Suppress autoview messages.
+alternative_order text/plain text/enriched text/html
 
 # Keybindings
 bind pager D delete-message
 bind pager U undelete-message
 
-set pager_stop     # prevents pager from going to next message
+set pager_stop            # prevents pager from going to next message
 set pager_read_delay = 2  # seconds before read condition
 
 set pager_index_lines = 5 # number of index lines to show
@@ -24,8 +28,9 @@ folder-hook . push '<collapse-all>'
 macro index O "<shell-escape>mailsync<enter>" "run mailsync to sync all mail"
 macro index,pager a "<pipe-message>khard add-email --headers=from,cc --skip-already-added<return>" "add the sender and cc email addresses to khard"
 
-set mark_old=no
+set mark_old=no # Unread mail stay unread until read
 
+# Sidebar
 unset sidebar_visible
 set sidebar_folder_indent
 set sidebar_indent_string="  "
@@ -66,7 +71,7 @@ unset local_date_header              # Set time-zone in emails to UTC
 set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 set forward_quote                    # include message in forwards
-unset mime_forward                   # mail body is forwarded as text
+set mime_forward                     # forward text is attached as original
 set forward_attachments              # attachments are forwarded with mail
 set attribution = "On %d, %n wrote:" # format of quoting header
 set reply_to                         # reply to Reply to: field
@@ -80,6 +85,15 @@ unset sig_on_top
 set sig_dashes                     # no dashes before sig
 unset markers
 
+# mutt-wizard default settings
+set mime_type_query_command = "file --mime-type -b %s"
+set smtp_authenticators = 'gssapi:login'
+set rfc2047_parameters = yes
+set sleep_time = 0    # Pause 0 seconds for informational messages
+set wait_key = no     # mutt won't ask "press key to continue"
+set fast_reply        # skip to compose when replying
+set fcc_attach        # save attachments with the body
+set mail_check=60     # to avoid lags using IMAP with some email providers (yahoo for example)
+
 source ~/.config/mutt/colors-gruvbox.muttrc
 source ~/.config/mutt/powerline.muttrc
-
