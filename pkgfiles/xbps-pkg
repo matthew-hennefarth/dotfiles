@@ -18,6 +18,7 @@ texlive-bin
 make
 snooze #cron replacement??
 lf
+rclone # file syncing
 
 nodejs # for jedi-language server
 
