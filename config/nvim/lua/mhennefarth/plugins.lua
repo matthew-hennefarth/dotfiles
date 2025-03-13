@@ -141,7 +141,6 @@ return require("packer").startup(function(use)
 
 	-- lbdb address completion
   use("codybuell/cmp-lbdb")
-  --use{"matthew-hennefarth/cmp-lbdb", branch='surr-char'}
 
 	-- markdown previewer
 	use({

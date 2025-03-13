@@ -4,6 +4,8 @@ local lspconfig = require('lspconfig')
   --filetypes = {"python"}
 --}
 
+lspconfig.zls.setup{}
+
 lspconfig.jedi_language_server.setup{}
 
 lspconfig.rust_analyzer.setup {

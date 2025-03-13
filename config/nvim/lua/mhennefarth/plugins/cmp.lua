@@ -34,7 +34,7 @@ require("cmp").setup({
 					"mail",
 				},
 				mail_header_only = true,
-				name_char = "",
+				use_quotes = false,
 			},
 		},
 	}),
