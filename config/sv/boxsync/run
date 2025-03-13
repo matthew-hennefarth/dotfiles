@@ -1,3 +1,3 @@
 #!/bin/sh -e
 exec 2>&1
-exec /usr/bin/snooze -H'*' -M/15 ~/.local/bin/scripts/boxsync.sh 
+exec /usr/bin/snooze -H'*' -M/10 ~/.local/bin/scripts/boxsync.sh 

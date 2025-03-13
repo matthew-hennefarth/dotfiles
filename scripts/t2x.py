@@ -20,6 +20,7 @@ def coordlines_to_data(line):
     frozen = False
     if len(tokens) == 5:
         frozen = tokens[4].upper() == 'F'
+        # atom_type = 'X'
 
     return (atom_type, x, y, z, frozen)
 
