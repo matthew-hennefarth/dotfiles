@@ -1,0 +1,9 @@
+theme = GruvboxDarkHard
+font-size = 18
+
+font-family = "IosevkaTerm Nerd Font Propo"
+font-feature = -calt, -liga, -dlig
+
+macos-titlebar-style = hidden
+window-padding-x = 10
+window-padding-y = 10

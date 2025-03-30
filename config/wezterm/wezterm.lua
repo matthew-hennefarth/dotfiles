@@ -6,8 +6,13 @@ local is_darwin <const> = wezterm.target_triple:find("darwin") ~= nil
 
 config.font = wezterm.font_with_fallback({
   "DinaRemasterII",
-	"GohuFont 14 Nerd Font Mono",
+  "GohuFont 14 Nerd Font Mono",
 })
+
+--config.font = wezterm.font_with_fallback({
+  --"IosevkaTerm Nerd Font",
+--})
+
 
 if is_darwin then
 	config.font_size = 18

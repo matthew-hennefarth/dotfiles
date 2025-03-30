@@ -29,19 +29,19 @@ brew "khal"
 # Applications
 cask "firefox"
 cask "discord"
-#cask "alacritty"
 cask "rectangle"
 cask "mactex-no-gui"
 cask "xquartz"
 cask "spotify"
 cask "cyberduck"
-#cask "dataspell"
 cask "zotero"
 cask "skim"
-cask "wezterm"
+#cask "wezterm"
 cask "keepassxc"
+cask "ghostty"
 
 # I still like DinaRemasterII
 # Fonts
 cask "font-gohufont-nerd-font"
 cask "font-computer-modern"
+cask "font-iosevka-term-nerd-font"
