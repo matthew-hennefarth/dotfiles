@@ -10,7 +10,7 @@ zsh-syntax-highlighting
 eza
 ripgrep
 gcc
-gcc-fortran
+#gcc-fortran # May not be needed if I am not working on fortran code... 
 python3-virtualenv
 cmake
 gnupg
@@ -36,6 +36,7 @@ khal
 # vdirsyncer, this needs to be installed with pip at the moment...
 
 # Applications
+ghostty # new terminal emulator? 
 wezterm
 firefox
 inkscape

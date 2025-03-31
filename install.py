@@ -249,9 +249,9 @@ def main() -> None:
         LOGGER.debug("Setting logger level to DEBUG")
 
     configure_symlinks(overwrite=args.overwrite)
-    configure_pkgmanager()
-    configure_nvim()
-    configure_runit_services(overwrite=args.overwrite)
+    # configure_pkgmanager()
+    # configure_nvim()
+    # configure_runit_services(overwrite=args.overwrite)
 
     # other things to do:
     # 1) ensure ~/.local/share/gnupg exists
