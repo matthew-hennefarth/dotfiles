@@ -19,6 +19,7 @@ make
 snooze #cron replacement??
 lf
 rclone # file syncing
+dunst #desktop notifications
 
 nodejs # for jedi-language server
 
