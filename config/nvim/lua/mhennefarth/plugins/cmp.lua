@@ -71,12 +71,12 @@ cmp.setup.cmdline(":", {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Setup rust_analyzer via rust-tools.nvim
-require("rust-tools").setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = lsp_attach,
-	},
-})
+--require("rust-tools").setup({
+	--server = {
+		--capabilities = capabilities,
+		--on_attach = lsp_attach,
+	--},
+--})
 
 require("lspconfig").texlab.setup({
 	capabilities = capabilities,

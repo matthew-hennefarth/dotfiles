@@ -1,7 +1,7 @@
 theme = GruvboxDarkHard
 font-size = 12
 
-font-family = "IosevkaTerm Nerd Font Propo"
+font-family = "IosevkaTerm Nerd Font"
 font-feature = -calt, -liga, -dlig
 
 window-decoration = server

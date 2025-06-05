@@ -8,12 +8,12 @@ lspconfig.zls.setup{}
 
 lspconfig.jedi_language_server.setup{}
 
-lspconfig.rust_analyzer.setup {
+--lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['rust-analyzer'] = {},
-  },
-}
+  --settings = {
+    --['rust-analyzer'] = {},
+  --},
+--}
 lspconfig.fortls.setup {}
 lspconfig.marksman.setup {}
 lspconfig.texlab.setup{}

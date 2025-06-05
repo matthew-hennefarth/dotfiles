@@ -1,6 +1,9 @@
 #!/bin/zsh
 # zsh profile file. Runs on login. 
 
+# For rust??
+source "$HOME/.cargo/env"
+
 # Initialize Homebrew if on system
 which /opt/homebrew/bin/brew &> /dev/null && eval $(/opt/homebrew/bin/brew shellenv)
 

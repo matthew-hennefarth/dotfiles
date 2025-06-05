@@ -21,12 +21,12 @@ return require("packer").startup(function(use)
 
 	-- Different colorschemes
 	use("RRethy/nvim-base16")
-	use({
-		"ellisonleao/gruvbox.nvim",
-		config = function()
-			require("mhennefarth.plugins.gruvbox")
-		end,
-	})
+  use({
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      require("mhennefarth.plugins.gruvbox")
+    end,
+  })
 
 	-- A Better Status Line --
 	use({
@@ -76,15 +76,15 @@ return require("packer").startup(function(use)
 	})
 
 	-- LSP notification/Status
-	use({
-		"mrded/nvim-lsp-notify",
-	})
-	use({
-		"rcarriga/nvim-notify",
-		config = function()
-			require("mhennefarth.plugins.notify")
-		end,
-	})
+  use({
+    "mrded/nvim-lsp-notify",
+  })
+  use({
+    "rcarriga/nvim-notify",
+    config = function()
+      require("mhennefarth.plugins.notify")
+    end,
+  })
 
 	-- LSP and Completion stuff
 	use("hrsh7th/cmp-nvim-lsp")
@@ -131,7 +131,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- rust tools?
-	use("simrat39/rust-tools.nvim")
+  use("mrcjkb/rustaceanvim")
 
 	-- vimtex
 	use("lervag/vimtex")
