@@ -49,6 +49,13 @@ lspconfig.lua_ls.setup {
   end
 }
 
+-- LSP Diagnostic Options setup
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+  }
+})
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
