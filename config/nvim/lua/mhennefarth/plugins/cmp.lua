@@ -11,9 +11,34 @@ require("cmp").setup({
 		end,
 	},
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+    completion = cmp.config.window.bordered({
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "Normal:NormalFloat,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+    }),
+    documentation = cmp.config.window.bordered({
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "Normal:NormalFloat,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+    }),
 	},
+
+  formatting = {
+        fields = { "kind", "abbr"}, -- This order creates the "column" look
+        format = function(entry, vim_item)
+            local kind_icons = {
+                Text = "", Method = "󰆧", Function = "󰊕", Constructor = "",
+                Field = "󰇽", Variable = "󰂡", Class = "󰠱", Interface = "",
+                Module = "", Property = "󰜢", Unit = "", Value = "󰎟",
+                Enum = "", Keyword = "󰌋", Snippet = "", Color = "󰏘",
+                File = "󰈙", Reference = "", Folder = "󰉋", EnumMember = "",
+                Constant = "󰏿", Struct = "", Event = "", Operator = "󰆕",
+                TypeParameter = "󰅲",
+            }
+            vim_item.kind = string.format(" %s ", kind_icons[vim_item.kind] or "?")
+
+            return vim_item
+        end,
+    },
+
 	mapping = cmp.mapping.preset.insert({
     -- Add tab support
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
@@ -68,23 +93,4 @@ cmp.setup.cmdline(":", {
 	}, {
 		{ name = "cmdline" },
 	}),
-})
-
--- Set up lspconfig.
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
--- Setup rust_analyzer via rust-tools.nvim
---require("rust-tools").setup({
-	--server = {
-		--capabilities = capabilities,
-		--on_attach = lsp_attach,
-	--},
---})
-
-require("lspconfig").texlab.setup({
-	capabilities = capabilities,
-})
-
-require("lspconfig").fortls.setup({
-	capabilities = capabilities,
 })

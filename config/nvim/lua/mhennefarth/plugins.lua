@@ -1,161 +1,150 @@
-local status, packer = pcall(require, "packer")
-if not status then
-	print("Packer is not installed")
-	return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Automatically run :PackerCompile whenever plugins.lua is updated with an autocommand:
-vim.api.nvim_create_autocmd("BufWritePost", {
-	group = vim.api.nvim_create_augroup("PACKER", { clear = true }),
-	pattern = "plugins.lua",
-	command = "source <afile> | PackerCompile",
-})
+require("lazy").setup({
+  -- Simple plugins
+  "preservim/nerdcommenter",
+  "jiangmiao/auto-pairs",
+  "junegunn/vim-easy-align",
+  "tpope/vim-fugitive",
+  "RRethy/nvim-base16",
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-cmdline",
+  "L3MON4D3/LuaSnip",
+  "saadparwaiz1/cmp_luasnip",
+  "mrcjkb/rustaceanvim",
+  "lervag/vimtex",
+  "adborden/vim-notmuch-address",
+  "codybuell/cmp-lbdb",
+  "mrded/nvim-lsp-notify",
 
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-	-- My plugins here
-	use("preservim/nerdcommenter")
-	use("jiangmiao/auto-pairs")
-	use("junegunn/vim-easy-align") -- align text
-	use("tpope/vim-fugitive") -- git merge stuff
-
-	-- Different colorschemes
-	use("RRethy/nvim-base16")
-  use({
+  -- Colorscheme (Setting priority so it loads first)
+  {
     "ellisonleao/gruvbox.nvim",
+    priority = 1000,
     config = function()
       require("mhennefarth.plugins.gruvbox")
     end,
-  })
+  },
 
-	-- A Better Status Line --
-	use({
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("mhennefarth.plugins.lualine")
-		end,
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
+  -- UI & Status
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+    config = function()
+      require("mhennefarth.plugins.lualine")
+    end,
+  },
 
-	-- A better File System
-	use({
-		"nvim-tree/nvim-tree.lua",
-		config = function()
-			require("mhennefarth.plugins.tree")
-		end,
-	})
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("mhennefarth.plugins.tree")
+    end,
+  },
 
-	-- Treesitter Syntax Highlighting
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		config = function()
-			require("mhennefarth.plugins.treesitter")
-		end,
-		run = ":TSUpdate",
-	})
+  -- Treesitter (using 'build' instead of 'run')
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("mhennefarth.plugins.treesitter")
+    end,
+  },
 
-	use({
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("mhennefarth.plugins.indent-blankline")
-		end,
-	})
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("mhennefarth.plugins.indent-blankline")
+    end,
+  },
 
-	use({
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("mhennefarth.plugins.gitsigns")
-		end,
-	})
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("mhennefarth.plugins.gitsigns")
+    end,
+  },
 
-	use({
-		"alexghergh/nvim-tmux-navigation",
-		config = function()
-			require("mhennefarth.plugins.tmux-navigation")
-		end,
-	})
+  {
+    "alexghergh/nvim-tmux-navigation",
+    config = function()
+      require("mhennefarth.plugins.tmux-navigation")
+    end,
+  },
 
-	-- LSP notification/Status
-  use({
-    "mrded/nvim-lsp-notify",
-  })
-  use({
+  {
     "rcarriga/nvim-notify",
     config = function()
       require("mhennefarth.plugins.notify")
     end,
-  })
+  },
 
-	-- LSP and Completion stuff
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use({
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require("mhennefarth.plugins.cmp")
-		end,
-	})
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-	use({
-		"williamboman/mason.nvim",
-		config = function()
-			require("mhennefarth.plugins.mason")
-		end,
-		requires = { "williamboman/mason-lspconfig.nvim" },
-		run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-	})
+  -- Completion & LSP
+  {
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require("mhennefarth.plugins.cmp")
+    end,
+  },
 
-	use({
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("mhennefarth.plugins.lspconfig")
-		end,
-	})
 
-	-- Linter and autoformat
-	use({
-		"mfussenegger/nvim-lint",
-		config = function()
-			require("mhennefarth.plugins.lint")
-		end,
-	})
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
+        "neovim/nvim-lspconfig",
+    },
+    config = function()
+      require("mhennefarth.plugins.mason")
+    end,
+  },
 
-	use({
-		"stevearc/conform.nvim",
-		config = function()
-			require("mhennefarth.plugins.conform")
-		end,
-	})
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("mhennefarth.plugins.lspconfig")
+    end,
+  },
 
-	-- rust tools?
-  use("mrcjkb/rustaceanvim")
+  -- Linting & Formatting
+  {
+    "mfussenegger/nvim-lint",
+    config = function()
+      require("mhennefarth.plugins.lint")
+    end,
+  },
 
-	-- vimtex
-	use("lervag/vimtex")
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("mhennefarth.plugins.conform")
+    end,
+  },
 
-	-- notmuch address completion
-	use("adborden/vim-notmuch-address")
-
-	-- lbdb address completion
-  use("codybuell/cmp-lbdb")
-
-	-- markdown previewer
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown", "mail" }
-		end,
-	})
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		packer.sync()
-	end
-end)
+  -- Markdown Preview
+  {
+    "iamcco/markdown-preview.nvim",
+    build = function() vim.fn["mkdp#util#install"]() end,
+    ft = { "markdown", "mail" }, -- This replaces the 'setup' filetype logic
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown", "mail" }
+    end,
+  },
+})

@@ -5,6 +5,7 @@ config/nvim/autoload/
 config/nvim/plugged/
 config/nvim/plugin/packer_compiled.lua
 config/nvim/spell/
+config/nvim/lazy-lock.json
 
 # Why does someone need to see this????
 config/zsh/.zsh_history
