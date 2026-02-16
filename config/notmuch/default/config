@@ -1,7 +1,7 @@
 [user]
 name=matthew.hennefarth
 primary_email=matthew.hennefarth@gmail.com
-other_email=mhennefarth@uchicago.edu
+other_email=mhennefarth@ucla.edu
 [new]
 tags=unread;inbox;
 ignore=.mbsyncstate;.uidvalidity
