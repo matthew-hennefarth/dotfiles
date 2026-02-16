@@ -33,15 +33,12 @@ cask "rectangle"
 cask "mactex-no-gui"
 cask "xquartz"
 cask "spotify"
-cask "cyberduck"
-cask "zotero"
 cask "skim"
-#cask "wezterm"
 cask "keepassxc"
 cask "ghostty"
 
 # I still like DinaRemasterII
+#cask "font-gohufont-nerd-font"
 # Fonts
-cask "font-gohufont-nerd-font"
 cask "font-computer-modern"
 cask "font-iosevka-term-nerd-font"
